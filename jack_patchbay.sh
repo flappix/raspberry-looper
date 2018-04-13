@@ -1,0 +1,41 @@
+#!/bin/bash
+
+while [ $(jack_lsp | grep -e "system:capture_1" -e "rakarrack:in_1" -e "rakarrack:in_2" -e "rakarrack:out_1" -e "system:playback_1" -e "rakarrack:out_2" -e "system:playback_2" -e "sooperlooper:common_in_1" -e "sooperlooper:common_in_2" -e "sooperlooper:common_out_1" -e "sooperlooper:common_out_2" -e "Hydrogen:out_L" -e "Hydrogen:out_R" -e "amsynth:L out" -e "amsynth:R out" -e "fluidsynth:l_00" -e "fluidsynth:r_00" | wc -l) != 17 ]
+do
+	echo "hack_patchbay: not all ports up, waiting"
+	sleep 0.5
+done
+
+#jack_connect alsa_in:capture_1 rakarrack:in_1
+#jack_connect alsa_in:capture_1 rakarrack:in_2
+
+jack_connect system:capture_1 rakarrack:in_1
+jack_connect system:capture_1 rakarrack:in_2
+
+jack_connect rakarrack:out_1 system:playback_1
+jack_connect rakarrack:out_2 system:playback_2
+
+jack_connect rakarrack:out_1 sooperlooper:common_in_1
+jack_connect rakarrack:out_2 sooperlooper:common_in_2
+
+jack_connect sooperlooper:common_out_1 system:playback_1
+jack_connect sooperlooper:common_out_2 system:playback_2
+
+jack_connect Hydrogen:out_L system:playback_1
+jack_connect Hydrogen:out_R system:playback_2
+
+jack_connect "amsynth:L out" system:playback_1
+jack_connect "amsynth:R out" system:playback_2
+jack_connect "amsynth:L out" sooperlooper:common_in_1
+jack_connect "amsynth:R out" sooperlooper:common_in_2
+
+jack_connect "fluidsynth:l_00" system:playback_1
+jack_connect "fluidsynth:r_00" system:playback_2
+
+jack_connect "fluidsynth:l_00" sooperlooper:common_in_1
+jack_connect "fluidsynth:r_00" sooperlooper:common_in_2
+
+#jack_connect alsa_in:capture_1 "aubio:in_1"
+jack_connect system:capture_1 "aubio:in_1" 
+
+exit 0

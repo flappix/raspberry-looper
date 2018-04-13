@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist>
+ <Name>playlist.h2playlist</Name>
+ <Songs>
+ <next>
+   <song>klick.h2song</song>
+   <script>no Script</script>
+   <enabled>Script not used</enabled>
+  </next>
+  <next>
+   <song>song1.h2song</song>
+   <script>no Script</script>
+   <enabled>Script not used</enabled>
+  </next>
+  <next>
+   <song>song2.h2song</song>
+   <script>no Script</script>
+   <enabled>Script not used</enabled>
+  </next>
+  <next>
+   <song>song3.h2song</song>
+   <script>no Script</script>
+   <enabled>Script not used</enabled>
+  </next>
+  <next>
+   <song>song4.h2song</song>
+   <script>no Script</script>
+   <enabled>Script not used</enabled>
+  </next>
+ </Songs>
+</playlist>
