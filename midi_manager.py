@@ -38,14 +38,13 @@ def getPort (ports, keywords):
 	return None
 
 def connect_ports (ports, pin, pout, disconnect=False):
-	if pin is iteratable 
 	
 	if (not ports[pin] is None) and  (not ports[pout] is None):
 		try:
 			if not disconnect:
 				jackclient.connect (ports[pin], ports[pout])
 			else:
-				jackclient.disconnect (port[pin], port[pout])
+				jackclient.disconnect (ports[pin], ports[pout])
 		except jack.JackError as e:
 			print (e)
 	else:
@@ -54,8 +53,8 @@ def connect_ports (ports, pin, pout, disconnect=False):
 		if ports[pout] is None:
 			print ('port ' + pout + ' is  None')
 
-def disconnect_ports (port, pin, pout):
-	connect_ports (port, pin, pout, disconnect=True)
+def disconnect_ports (ports, pin, pout):
+	connect_ports (ports, pin, pout, disconnect=True)
 
 all_audio_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.Port]
 port_desc = [('capture_1', ['system:capture_1']),
@@ -68,6 +67,7 @@ port_desc = [('capture_1', ['system:capture_1']),
 			 ('rr_out_2', ['rakarrack:out_2']),
 			 ('hydrogen_out_1', ['Hydrogen', 'out_R']),
 			 ('hydrogen_out_2', ['Hydrogen', 'out_L']),
+			 ('aubio_in', ['aubio', 'in']),
 			 ('amsynth_out_1', ['amsynth', 'R out']),
 			 ('amsynth_out_2', ['amsynth', 'L out']),
 			 ('fluidsynth_out_1', ['fluidsynth', 'right']),
@@ -82,6 +82,8 @@ connect_ports (audio_ports, 'capture_1', 'rr_in_1')
 connect_ports (audio_ports, 'capture_1', 'rr_in_2')
 connect_ports (audio_ports, 'capture_2', 'rr_in_1')
 connect_ports (audio_ports, 'capture_2', 'rr_in_2')
+
+connect_ports (audio_ports, 'capture_1', 'aubio_in')
 
 for i in ['hydrogen_out_1', 'hydrogen_out_2', 'rr_out_1', 'rr_out_2', 'amsynth_out_1', 'amsynth_out_2', 'fluidsynth_out_1', 'fluidsynth_out_2']:
 	connect_ports (audio_ports, i, 'playback_1')
@@ -102,13 +104,13 @@ port_desc = [('korg_in', ['nanoKONTROL', 'capture']),
 			 ('rr', ['rakarrack', 'in']),
 			 ('hydrogen', ['Hydrogen', 'playback']),
 			 ('amsynth', ['amsynth', 'playback']),
-			 ('fluidsynth', ['FLUID', 'playback']),
-			 ('aubio', ['midi_out'])]
+			 ('fluidsynth', ['fluidsynth', 'midi']),
+			 ('aubio', ['aubio', 'midi_out'])]
 midi_ports = {k: getPort (all_midi_ports, v) for (k, v) in port_desc}
 
-connect_ports (midi_ports, 'korg_out', 'sl')
-connect_ports (midi_ports, 'korg_out', 'hydrogen')
-connect_ports (midi_ports, 'korg_out', 'rr')
+connect_ports (midi_ports, 'korg_in', 'sl')
+connect_ports (midi_ports, 'korg_in', 'hydrogen')
+connect_ports (midi_ports, 'korg_in', 'rr')
 
 slider_lst_state = [-1]*8
 rot_lst_state = [-1]*8
@@ -314,8 +316,8 @@ def process_korg_in (msg):
 			#call (["aconnect", "-d", str(midi_ports['korg']),  str(midi_ports['amsynth'])])
 			#call (["jack_disconnect", str(midi_ports['korg_jack']),  str(midi_ports['amsynth_jack'])])
 			
-			connect_ports (midi_ports, 'korg_out', 'sl')
-			disconnect_ports (midi_ports, 'korg_out', 'amsynth')
+			connect_ports (midi_ports, 'korg_in', 'sl')
+			disconnect_ports (midi_ports, 'korg_in', 'amsynth')
 			
 	elif msg[:2] == spec_button ('fx')[:2]:
 		if mode != 'fx':
@@ -329,9 +331,9 @@ def process_korg_in (msg):
 			
 			disconnect_ports (midi_ports, 'aubio', 'amsynth')
 			disconnect_ports (midi_ports, 'aubio', 'fluidsynth')
-			disconnect_ports (midi_ports, 'korg_out', 'amsynth')
-			disconnect_ports (midi_ports, 'korg_out', 'fluidsynth')
-			connect_ports (midi_ports, 'korg_out', 'sl')
+			disconnect_ports (midi_ports, 'korg_in', 'amsynth')
+			disconnect_ports (midi_ports, 'korg_in', 'fluidsynth')
+			connect_ports (midi_ports, 'korg_in', 'sl')
 			
 	elif msg[:2] == spec_button ('drum')[:2]:
 		if mode != 'drum':
@@ -340,9 +342,9 @@ def process_korg_in (msg):
 			
 			#call (["aconnect", "-d", str(midi_ports['korg']),  str(midi_ports['sl'])])
 			
-			disconnect_ports (midi_ports, 'korg_out', 'sl')
-			disconnect_ports (midi_ports, 'korg_out', 'amsynth')
-			disconnect_ports (midi_ports, 'korg_out', 'fluidsynth')
+			disconnect_ports (midi_ports, 'korg_in', 'sl')
+			disconnect_ports (midi_ports, 'korg_in', 'amsynth')
+			disconnect_ports (midi_ports, 'korg_in', 'fluidsynth')
 			disconnect_ports (midi_ports, 'aubio', 'amsynth')
 			disconnect_ports (midi_ports, 'aubio', 'fluidsynth')
 
@@ -360,9 +362,9 @@ def process_korg_in (msg):
 			queues['out']['fluidsynth_out'].append ([176,123,0]) # kill every noteon event from fluidsynth
 			
 			disconnect_ports (midi_ports, 'aubio', 'fluidsynth')
-			sconnect_ports (midi_ports, 'aubio', 'amsynth')
-			disconnect_ports (midi_ports, 'korg_out', 'sl')
-			connect_ports (midi_ports, 'korg_out', 'amsynth')
+			connect_ports (midi_ports, 'aubio', 'amsynth')
+			disconnect_ports (midi_ports, 'korg_in', 'sl')
+			connect_ports (midi_ports, 'korg_in', 'amsynth')
 			
 		else: # toggle between amsynth and fluidsynth
 			if mode == 'synth': # amsynth
@@ -377,8 +379,8 @@ def process_korg_in (msg):
 				
 				connect_ports (midi_ports, 'aubio', 'fluidsynth')
 				disconnect_ports (midi_ports, 'aubio', 'amsynth')
-				connect_ports (midi_ports, 'korg_out', 'fluidsynth')
-				disconnect_ports (midi_ports, 'korg_out', 'amsynth')
+				connect_ports (midi_ports, 'korg_in', 'fluidsynth')
+				disconnect_ports (midi_ports, 'korg_in', 'amsynth')
 				
 			else: # fluidsynth
 				updateLeds (mode, 'synth')
@@ -391,8 +393,8 @@ def process_korg_in (msg):
 				
 				disconnect_ports (midi_ports, 'aubio', 'fluidsynth')
 				connect_ports (midi_ports, 'aubio', 'amsynth')
-				disconnect_ports (midi_ports, 'korg', 'fluidsynth')
-				connect_ports (midi_ports, 'korg', 'amsynth')
+				disconnect_ports (midi_ports, 'korg_in', 'fluidsynth')
+				connect_ports (midi_ports, 'korg_in', 'amsynth')
 			
 	elif msg == spec_button ('save'):
 		save()
