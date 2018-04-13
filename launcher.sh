@@ -24,8 +24,8 @@ sooperlooper -l 8 -c 1 -L sooperlooper/default_session.slsess -m sooperlooper/de
 h2cli -s hydrogen/default.h2song > /dev/null 2>&1 &
 sleep 1
 amsynth -x &
-fluidsynth -s -i -m jack -g 2 fluidsynth/custom.sf2 -o synth.polyphony=1 &
-aubionotes -B 1024 -H 1024 &
+fluidsynth -s -i -m jack -g 2 fluidsynth/custom.sf2 &
+aubionotes & #-B 1024 -H 1024 &
 a2jmidid --export-hw &
 #./midi_patchbay.sh &&
 #./jack_patchbay.sh &&
