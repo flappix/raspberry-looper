@@ -26,7 +26,7 @@ sleep 1
 amsynth -x &
 fluidsynth -s -i -m jack -g 2 fluidsynth/custom.sf2 &
 aubionotes &
-a2jmidid -e &
-./midi_patchbay.sh &&
-./jack_patchbay.sh &&
+a2jmidid --export-hw &
+#./midi_patchbay.sh &&
+#./jack_patchbay.sh &&
 ./midi_manager.py
