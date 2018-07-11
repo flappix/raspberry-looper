@@ -56,6 +56,7 @@ def connect_ports (ports, pin, pout, disconnect=False):
 def disconnect_ports (ports, pin, pout):
 	connect_ports (ports, pin, pout, disconnect=True)
 
+### audio ports
 all_audio_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.Port]
 port_desc = [('capture_1', ['system:capture_1']),
 			 ('capture_2', ['system:capture_2']),
@@ -76,7 +77,7 @@ port_desc = [('capture_1', ['system:capture_1']),
 			 [('sl_in_' + str(i+1), ['sooperlooper', 'loop' + str(i) + '_in_1']) for i in range(8)]
 audio_ports = {k: getPort (all_audio_ports, v) for (k, v) in port_desc}
 
-### connecting ports
+# connecting ports
 
 connect_ports (audio_ports, 'capture_1', 'rr_in_1')
 connect_ports (audio_ports, 'capture_1', 'rr_in_2')
@@ -97,13 +98,14 @@ for i in audio_ports:
 		connect_ports (audio_ports, i, 'playback_1')
 		connect_ports (audio_ports, i, 'playback_2')
 
+### midi ports
 all_midi_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.MidiPort]
 port_desc = [('korg_in', ['nanoKONTROL', 'capture']),
 			 ('korg_out', ['nanoKONTROL', 'playback']),
 			 ('sl', ['sooperlooper', 'playback']),
 			 ('rr', ['rakarrack', 'in']),
 			 ('hydrogen', ['Hydrogen', 'playback']),
-			 ('amsynth', ['amsynth', 'playback']),
+			 ('amsynth', ['amsynth', 'midi_in']),
 			 ('fluidsynth', ['fluidsynth', 'midi']),
 			 ('aubio', ['aubio', 'midi_out'])]
 midi_ports = {k: getPort (all_midi_ports, v) for (k, v) in port_desc}
