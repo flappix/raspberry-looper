@@ -62,41 +62,32 @@ port_desc = [('capture_1', ['system:capture_1']),
 			 ('capture_2', ['system:capture_2']),
 			 ('playback_1', ['system:playback_1']),
 			 ('playback_2', ['system:playback_2']),
-			 ('rr_in_1', ['rakarrack:in_1']),
-			 ('rr_in_2', ['rakarrack:in_2']),
-			 ('rr_out_1', ['rakarrack:out_1']),
-			 ('rr_out_2', ['rakarrack:out_2']),
-			 ('hydrogen_out_1', ['Hydrogen', 'out_R']),
-			 ('hydrogen_out_2', ['Hydrogen', 'out_L']),
+			 ('rr_in', ['rakarrack:in_1']),
+			 ('rr_out', ['rakarrack:out_1']),
+			 ('hydrogen_out', ['Hydrogen', 'out_R']),,
 			 ('aubio_in', ['aubio', 'in']),
-			 ('amsynth_out_1', ['amsynth', 'R out']),
-			 ('amsynth_out_2', ['amsynth', 'L out']),
-			 ('fluidsynth_out_1', ['fluidsynth', 'right']),
-			 ('fluidsynth_out_2', ['fluidsynth', 'left']),
-			 ('sl_out_all_1', ['sooperlooper', 'common_out_1']),
-			 ('sl_out_all_2', ['sooperlooper', 'common_out_2']),
-			 ('sl_in_all_1', ['sooperlooper', 'common_in_1']),
-			 ('sl_in_all_2', ['sooperlooper', 'common_in_2'])], + \
+			 ('amsynth_out', ['amsynth', 'R out']),
+			 ('fluidsynth_out', ['fluidsynth', 'right']),
+			 ('sl_out_all', ['sooperlooper', 'common_out_1']),
+			 ('sl_in_all', ['sooperlooper', 'common_in_1'])] + \
 			 [('sl_out_' + str(i+1), ['sooperlooper', 'loop' + str(i) + '_out_1']) for i in range(8)] + \
 			 [('sl_in_' + str(i+1), ['sooperlooper', 'loop' + str(i) + '_in_1']) for i in range(8)]
 audio_ports = {k: getPort (all_audio_ports, v) for (k, v) in port_desc}
 
 # connecting ports
 
-connect_ports (audio_ports, 'capture_1', 'rr_in_1')
-connect_ports (audio_ports, 'capture_1', 'rr_in_2')
-connect_ports (audio_ports, 'capture_2', 'rr_in_1')
-connect_ports (audio_ports, 'capture_2', 'rr_in_2')
+connect_ports (audio_ports, 'capture_1', 'rr_in')
+connect_ports (audio_ports, 'capture_2', 'rr_in')
 
 connect_ports (audio_ports, 'capture_1', 'aubio_in')
+connect_ports (audio_ports, 'capture_2', 'aubio_in')
 
-for i in ['hydrogen_out_1', 'hydrogen_out_2', 'rr_out_1', 'rr_out_2', 'amsynth_out_1', 'amsynth_out_2', 'fluidsynth_out_1', 'fluidsynth_out_2']:
+for i in ['hydrogen_out', 'rr_out', 'amsynth_out', 'fluidsynth_out']:
 	connect_ports (audio_ports, i, 'playback_1')
 	connect_ports (audio_ports, i, 'playback_2')
 
-for i in ['rr_out_1', 'rr_out_2', 'amsynth_out_1', 'amsynth_out_2', 'fluidsynth_out_1', 'fluidsynth_out_2']:
-	connect_ports (audio_ports, i, 'sl_in_all_1')
-	connect_ports (audio_ports, i, 'sl_in_all_2')
+for i in ['rr_out', 'amsynth_out', 'fluidsynth_out']:
+	connect_ports (audio_ports, i, 'sl_in_all')
 
 for i in audio_ports:
 	if 'sl_out' in str(i):
