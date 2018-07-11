@@ -329,9 +329,9 @@ def process_korg_in (msg):
 			
 			disconnect_ports (midi_ports, 'aubio', 'amsynth')
 			disconnect_ports (midi_ports, 'aubio', 'fluidsynth')
+			disconnect_ports (midi_ports, 'korg_in', 'sl')
 			disconnect_ports (midi_ports, 'korg_in', 'amsynth')
 			disconnect_ports (midi_ports, 'korg_in', 'fluidsynth')
-			connect_ports (midi_ports, 'korg_in', 'sl')
 			
 	elif msg[:2] == spec_button ('drum')[:2]:
 		if mode != 'drum':
