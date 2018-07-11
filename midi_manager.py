@@ -94,6 +94,10 @@ for i in audio_ports:
 	if 'sl_in' in str(i):
 		connect_ports (audio_ports, 'rr_out_1', i)
 		connect_ports (audio_ports, 'rr_out_2', i)
+		connect_ports (audio_ports, 'amsynth_out_1', i)
+		connect_ports (audio_ports, 'amsynth_out_2', i)
+		connect_ports (audio_ports, 'fluidsynth_out_1', i)
+		connect_ports (audio_ports, 'fluidsynth_out_2', i)
 	if 'sl_out' in str(i):
 		connect_ports (audio_ports, i, 'playback_1')
 		connect_ports (audio_ports, i, 'playback_2')
