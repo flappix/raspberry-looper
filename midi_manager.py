@@ -72,7 +72,11 @@ port_desc = [('capture_1', ['system:capture_1']),
 			 ('amsynth_out_1', ['amsynth', 'R out']),
 			 ('amsynth_out_2', ['amsynth', 'L out']),
 			 ('fluidsynth_out_1', ['fluidsynth', 'right']),
-			 ('fluidsynth_out_2', ['fluidsynth', 'left'])] + \
+			 ('fluidsynth_out_2', ['fluidsynth', 'left']),
+			 ('sl_out_all_1', ['sooperlooper', 'common_out_1']),
+			 ('sl_out_all_2', ['sooperlooper', 'common_out_2']),
+			 ('sl_in_all_1', ['sooperlooper', 'common_in_1']),
+			 ('sl_in_all_2', ['sooperlooper', 'common_in_2'])], + \
 			 [('sl_out_' + str(i+1), ['sooperlooper', 'loop' + str(i) + '_out_1']) for i in range(8)] + \
 			 [('sl_in_' + str(i+1), ['sooperlooper', 'loop' + str(i) + '_in_1']) for i in range(8)]
 audio_ports = {k: getPort (all_audio_ports, v) for (k, v) in port_desc}
@@ -90,14 +94,11 @@ for i in ['hydrogen_out_1', 'hydrogen_out_2', 'rr_out_1', 'rr_out_2', 'amsynth_o
 	connect_ports (audio_ports, i, 'playback_1')
 	connect_ports (audio_ports, i, 'playback_2')
 
+for i in ['rr_out_1', 'rr_out_2', 'amsynth_out_1', 'amsynth_out_2', 'fluidsynth_out_1', 'fluidsynth_out_2']:
+	connect_ports (audio_ports, i, 'sl_in_all_1')
+	connect_ports (audio_ports, i, 'sl_in_all_2')
+
 for i in audio_ports:
-	if 'sl_in' in str(i):
-		connect_ports (audio_ports, 'rr_out_1', i)
-		connect_ports (audio_ports, 'rr_out_2', i)
-		connect_ports (audio_ports, 'amsynth_out_1', i)
-		connect_ports (audio_ports, 'amsynth_out_2', i)
-		connect_ports (audio_ports, 'fluidsynth_out_1', i)
-		connect_ports (audio_ports, 'fluidsynth_out_2', i)
 	if 'sl_out' in str(i):
 		connect_ports (audio_ports, i, 'playback_1')
 		connect_ports (audio_ports, i, 'playback_2')
