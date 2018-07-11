@@ -1,0 +1,31 @@
+# $Id$
+# Maintainer: David Runge <dave@sleepmap.de>
+# Contributor: Ray Rashif <schiv@archlinux.org>
+# Contributor: Tobias Kieslich tobias [funnychar] archlinux org
+
+pkgbase=aubio
+pkgname=('aubio')
+pkgver=0.4.2
+pkgrel=2
+pkgdesc="A tool for extracting annotations from audio signals"
+arch=('x86_64')
+url="https://aubio.org/"
+license=('GPL3')
+makedepends=('doxygen' 'ffmpeg' 'fftw' 'jack' 'libsamplerate' 'libsndfile' 'python-numpy' 'python-setuptools' 'python2-numpy' 'python2-setuptools')
+source=("https://${pkgname}.org/pub/${pkgname}-${pkgver}.tar.bz2")
+sha512sums=('0e5cab0c88d51f2fb70c0d85e1c067a7b3758fbffdbd5026686726379aa36203adb63ed3f8e40c83ea02930e0ffc4e6c246803f1d518d448d47a01984678e77d'
+            '46fadc289bf6ae5b57d9ba15de0e3a892e255b26c0420efea6d0acdf39cd553d7e8c4ae9a2cde0fdfe0d99b3f05ef18b41e07288174c0fbf49c8d16f8d766f9a')
+
+build() {
+  cd "${pkgname}-${pkgver}"
+  echo "$(pwd)"
+  python2 waf configure --enable-fftw3
+  python2 waf build
+}
+
+package() {
+  cd "${pkgname}-${pkgver}"
+  python2 waf --destdir="${pkgdir}" install
+  install -t "${pkgdir}/usr/share/doc/${pkgname}/" \
+    -vDm 644 {AUTHORS,ChangeLog,README.md}
+}
