@@ -100,7 +100,7 @@ port_desc = [('korg_in', ['nanoKONTROL', 'capture']),
 			 ('korg_out', ['nanoKONTROL', 'playback']),
 			 ('sl', ['sooperlooper', 'playback']),
 			 ('rr', ['rakarrack', 'in']),
-			 ('hydrogen', ['Hydrogen', 'playback']),
+			 ('hydrogen', ['hydrogen', 'midi', 'RX']),
 			 ('amsynth', ['amsynth', 'midi_in']),
 			 ('fluidsynth', ['fluidsynth', 'midi']),
 			 ('aubio', ['aubio', 'midi_out'])]
