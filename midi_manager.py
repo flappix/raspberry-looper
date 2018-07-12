@@ -96,8 +96,8 @@ for i in audio_ports:
 
 ### midi ports
 all_midi_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.MidiPort]
-port_desc = [('korg_in', ['nanoKONTROL', 'capture']),
-			 ('korg_out', ['nanoKONTROL', 'playback']),
+port_desc = [('korg_in', ['system', 'capture']),
+			 ('korg_out', ['system', 'playback']),
 			 ('sl', ['sooperlooper', 'playback']),
 			 ('rr', ['rakarrack', 'in']),
 			 ('hydrogen', ['hydrogen', 'midi', 'RX']),

@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/cmake/rtclock/rtclock.c
+stdio.h
+-
+time.h
+-
+stdint.h
+-
+

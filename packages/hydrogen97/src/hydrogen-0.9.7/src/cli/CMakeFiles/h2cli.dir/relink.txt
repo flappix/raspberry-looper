@@ -1,0 +1,1 @@
+/usr/bin/c++   -O2 -std=gnu++11 -Wno-deprecated-register -fno-implement-inlines -g   -Wl,-O1,--sort-common,--as-needed,-z,relro CMakeFiles/h2cli.dir/main.cpp.o  -o CMakeFiles/CMakeRelink.dir/h2cli -rdynamic ../core/libhydrogen-core-0.9.7.so -lQtGui -lQtCore -lQtXml -lQtXmlPatterns -larchive -lsndfile -lasound -ljack -lpulse -llrdf -lz -lpthread -llo 

@@ -13,7 +13,7 @@ home_dir=/root/looper
 cd $home_dir
 
 #jackd -S -R -d alsa -r 48000 -p 256 &
-dbus-launch jackd -R -d alsa &
+dbus-launch jackd -R -d alsa -r 44100 -p 128 -X raw &
 sleep 1
 #alsa_in -d usb &
 rakarrack -n -b rakarrack/bank.rkrb -p 0 &

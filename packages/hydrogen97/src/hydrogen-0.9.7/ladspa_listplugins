@@ -1,0 +1,37 @@
+/usr/lib/ladspa/sine.so:
+	Sine Oscillator (Freq:audio, Amp:audio) (1044/sine_faaa)
+	Sine Oscillator (Freq:audio, Amp:control) (1045/sine_faac)
+	Sine Oscillator (Freq:control, Amp:audio) (1046/sine_fcaa)
+	Sine Oscillator (Freq:control, Amp:control) (1047/sine_fcac)
+/usr/lib/ladspa/filter.so:
+	Simple Low Pass Filter (1041/lpf)
+	Simple High Pass Filter (1042/hpf)
+/usr/lib/ladspa/delay.so:
+	Simple Delay Line (1043/delay_5s)
+/usr/lib/ladspa/amp.so:
+	Mono Amplifier (1048/amp_mono)
+	Stereo Amplifier (1049/amp_stereo)
+/usr/lib/ladspa/guitarix.so:
+	guitarix (4068/Simulators)
+/usr/lib/ladspa/guitarix_amp.so:
+	guitarix_amp (4066/guitarix_amp)
+/usr/lib/ladspa/guitarix_distortion.so:
+	guitarix_distortion (4061/guitarix-distortion)
+/usr/lib/ladspa/guitarix_echo.so:
+	guitarix_echo (4063/guitarix_echo)
+/usr/lib/ladspa/guitarix_crybaby.so:
+	guitarix_crybaby (4062/guitarix_crybaby)
+/usr/lib/ladspa/guitarix_compressor.so:
+	guitarix_compressor (4067/guitarix_compressor)
+/usr/lib/ladspa/guitarix_freeverb.so:
+	guitarix_freeverb (4064/guitarix_freeverb)
+/usr/lib/ladspa/ladspa-rubberband.so:
+	Rubber Band Mono Pitch Shifter (2979/rubberband-pitchshifter-mono)
+	Rubber Band Stereo Pitch Shifter (9792/rubberband-pitchshifter-stereo)
+/usr/lib/ladspa/guitarix_IR.so:
+	guitarix_IR (4065/guitarix_IR)
+/usr/lib/ladspa/ladspa_guitarix.so:
+	Guitarix Amp (4069/guitarix-amp)
+	Guitarix Stereo Fx (4070/guitarix-fx)
+/usr/lib/ladspa/noise.so:
+	White Noise Source (1050/noise_white)
