@@ -186,7 +186,7 @@ fluidsynth = ['synth', 'drum']  # light synth and drum up to indicate we are sel
 ## variables
 ########################################################################
 
-midi = {'korg_in': rtmidi.MidiIn(), 'korg_out': rtmidi.MidiOut(), 'sl_out': rtmidi.MidiOut(), 'rr_out': rtmidi.MidiOut(), 'amsynth_out': rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'fluidsynth_out': rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'hydrogen_out':  rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)) }
+midi = {'korg_in': rtmidi.MidiIn(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'korg_out': rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'sl_out': rtmidi.MidiOut(), 'rr_out': rtmidi.MidiOut(), 'amsynth_out': rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'fluidsynth_out': rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'hydrogen_out':  rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)) }
 queues = { 'out': {}, 'in': {} }
 for i in midi:
 	if 'out' in i:
@@ -227,7 +227,7 @@ def openPorts():
 	for i in midi:
 		ports[i] = None
 	
-	keywords = ['nanoKONTROL', 'nanoKONTROL', 'sooperlooper', 'rakarrack', 'amsynth', 'fluidsynth', 'Hydrogen']
+	keywords = ['system:midi_capture', 'system:midi_playback', 'sooperlooper', 'rakarrack', 'amsynth', 'fluidsynth', 'hydrogen']
 	k = 0
 	for i in midi:
 		# alsa api
