@@ -7,10 +7,11 @@ import time
 import _thread
 import rtmidi
 from rtmidi import midiutil
-from inputs import devices
 import liblo
 from subprocess import call
 import math
+
+import RPi.GPIO as GPIO
 
 import jack
 
@@ -27,6 +28,10 @@ save_dir = "/mnt/data/saved_loops/"
 ########################################################################
 ## prepare
 ########################################################################
+
+# footswitch
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 jackclient = jack.Client ('MidiManager')
 
@@ -203,10 +208,10 @@ curr_loaded = -1
 loop_state = []
 
 msg = {'record': [144,0,1], 'sync': [144,1,1], 'desync': [144,2,1], 'playsync': [144,3,1], 'deplaysync': [144,4,1], 'incr_bpm': [144,6,1]}
-footswitch = None
-for i in devices.mice:
-	if 'FootSwitch' in i.name:
-		footswitch = i 
+#footswitch = None
+#for i in devices.mice:
+#	if 'FootSwitch' in i.name:
+#		footswitch = i 
 
 curr_loop = 1
 sync_switch = True
@@ -269,11 +274,11 @@ def write():
 		
 def read_pedal():
 	global sync_switch
-	global footswitch
+#	global footswitch
 	
 	last_time = 0
 	while True:
-		footswitch.read()
+		GPIO.wait_for_edge(3, GPIO.FALLING)
 		if time.time() - last_time > 0.4:
 			print ("Record")
 			if sync_switch:
