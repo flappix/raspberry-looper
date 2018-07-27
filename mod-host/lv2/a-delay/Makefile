@@ -16,7 +16,6 @@ install: $(BUNDLE)
 	cp -R $(BUNDLE) $(INSTALL_DIR)
 	cp manifest.ttl $(INSTALL_DIR)/a-delay.lv2/manifest.ttl
 	cp a-delay.ttl $(INSTALL_DIR)/a-delay.lv2/a-delay.ttl
-	cp presets.ttl $(INSTALL_DIR)/a-delay.lv2/presets.ttl
 
 uninstall:
 	rm -rf $(INSTALL_DIR)/$(BUNDLE)

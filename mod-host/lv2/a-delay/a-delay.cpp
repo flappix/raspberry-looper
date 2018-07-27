@@ -197,6 +197,9 @@ connect_port(LV2_Handle instance,
 		break;
 	case ADELAY_DIVISOR:
 		adelay->divisor = (float*)data;
+		
+		cout<<(float*)data<<endl;
+		
 		break;
 	case ADELAY_WETDRY:
 		adelay->wetdry = (float*)data;
