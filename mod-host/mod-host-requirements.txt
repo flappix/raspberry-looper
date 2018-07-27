@@ -1,0 +1,90 @@
+Pre Amp -> Compressor -> Delay -> Reverb -> Distortion -> Filter -> Post Amp
+
+Ampflifier
+==========
+
+gain
+sym: gain
+min: -90
+max: 24
+
+Compressor
+==========
+threshold
+sym: threshold
+min: 0.000976563
+max: 1
+
+ratio
+sym: ratio
+min: 1
+max: 20
+
+Delay
+=====
+
+divisor
+sym: div
+min: 1
+max: 16 (maybe change)
+
+feedback
+sym: feedback
+min: 0
+max: 100
+
+dry/wet
+sym: drywet
+min: 0
+max: 100
+
+sync bpm
+sym: sync
+defaul: 1
+
+
+Reverb
+======
+
+decay time
+sym: decay_time
+min: 0.4
+max: 15
+
+dry amount
+sym: dry
+min: 0
+max: 2
+
+wet amount
+sym: amount
+min: 0
+max: 2
+
+bass cut
+sym: bass_cut
+default: 20
+
+treble cut
+sym: treble_cut
+default: 20000
+
+high freq damp
+sym: hf_damp
+default: 20000
+
+Distortion
+=========
+
+
+Filter
+=======
+http://calf.sourceforge.net/plugins/Equalizer8Band
+
+activate highpass
+sym: hp_active
+default: 1
+
+activate lowpass
+sym: lp_active
+default: 1
