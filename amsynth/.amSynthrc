@@ -10,7 +10,7 @@
 # the ALSA driver uses the sequencer client interface. you will have to
 # 'aconnect' it to something to get input.
 
-midi_driver 		auto
+midi_driver	auto
 
 # set the OSS compatible midi device file to read input data from.
 # eg /dev/midi or /dev/midi00 for some systems.
@@ -37,7 +37,7 @@ midi_channel		0
 #
 # 'alsa-mmap' has better performance than 'alsa', but may be less compatible
 
-audio_driver		auto
+audio_driver		jack
 
 
 # set the OSS digital audio device to output to.
@@ -71,3 +71,4 @@ sample_rate		44100
 # set this to 0 for unlimited polyphony
 
 polyphony		1
+ignored_parameters	master_vol
