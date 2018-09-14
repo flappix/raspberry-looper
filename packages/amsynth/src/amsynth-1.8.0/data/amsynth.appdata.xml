@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>amsynth.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <name>Analog Modelling SYNTHesizer</name>
+  <name xml:lang="de">Virtuell-analoger Synthesizer</name>
+  <name xml:lang="fr">Synthétiseur modelant de l'analogique</name>
+  <project_license>GPL-2.0+</project_license>
+  <summary>Analog modelling (a.k.a virtual analog) software synthesizer</summary>
+  <summary xml:lang="de">Virtuell-analoger Softwaresynthesizer</summary>
+  <summary xml:lang="fr">Synthétiseur logiciel (analogique virtuel) modelant de l'analogique</summary>
+  <url type="homepage">http://amsynth.github.io/</url>
+  <description>
+    <p>Amsynth is an analog modelling (a.k.a virtual analog) software synthesizer. It mimics the operation of early analog subtractive synthesizers with classic oscillator waveforms, envelopes, filter, modulation and effects. The aim is to make it easy to create and modify sounds.</p>
+    <p xml:lang="de">Amsynth ist ein virtuell-analoger Softwaresynthesizer. Er ahmt die Funktionsweise früher analoger subtraktiver Synthesizer mit klassischen Oszillator-Wellenformen, Hüllkurven, Filtern, Modulation und Effekten nach. Das Ziel ist, das einfache Erstellen und Verändern von Klängen zu ermöglichen.</p>
+    <p xml:lang="fr">Amsynth est un synthétiseur logiciel (analogique virtuel) modelant de l'analogique. Il imite les opérations des synthétiseurs soustractifs analogiques des premiers jours avec des formes d'onde d'oscillateur classique, des enveloppes, un filtre, une modulation, et des effets. Le but est de rendre facile la création et la modification des sons.</p>
+    <p>Features:</p>
+    <p xml:lang="de">Funktionen:</p>
+    <p xml:lang="fr">Fonctionnalités :</p>
+    <ul>
+      <li>Dual oscillators (sine / saw / square / noise) with hard sync</li>
+      <li xml:lang="de">Zwei Oszillatoren (Sinus/Sägezahn/Rechteck/Rauschen) mit Hard Sync</li>
+      <li xml:lang="fr">Oscillateurs double (sinusoïde / dent-de-scie / carré / bruit) avec une synchronisation dure</li>
+      <li>12/24 dB/oct resonant filter (low-pass / high-pass / band-pass / notch)</li>
+      <li xml:lang="de">12/24 db/Okt Resonanzfilter (Tiefpass/Hochpass/Bandpass/Kerbfilter)</li>
+      <li xml:lang="fr">filtre résonnant 12/24 dB/oct (passe-bas / passe-haut / passe-bande / à encoche)</li>
+      <li>Mono / poly / legato keyboard modes</li>
+      <li xml:lang="de">Mono-/Poly-/Legato-Keyboardmodi</li>
+      <li xml:lang="fr">modes de clavier mono / poly / legato</li>
+      <li>Dual ADSR envelope generators (filter &amp; amplitude)</li>
+      <li xml:lang="de">Zwei ADSR-Hüllkurvengeneratoren (Filter &amp; Amplitude)</li>
+      <li xml:lang="fr">Générateurs d'enveloppe ADSR double (filtre &amp; amplitude)</li>
+      <li>LFO which can modulate the oscillators, filter, and amplitude</li>
+      <li xml:lang="de">LFO, der die Oszillatoren, Filter und Amplitude modulieren kann</li>
+      <li xml:lang="fr">LFO qui peut moduler les oscillateurs, le filtre et l'amplitude</li>
+      <li>Distortion and reverb</li>
+      <li xml:lang="de">Verzerrung und Hall</li>
+      <li xml:lang="fr">Distorsion et réverbération</li>
+      <li>Hundreds of presets</li>
+      <li xml:lang="de">Hunderte von Presets</li>
+      <li xml:lang="fr">Centaines de pré-réglages</li>
+    </ul>
+
+    <p>There are currently several different ways to run amsynth:</p>
+    <p xml:lang="de">Es gibt im Moment mehrere verschiedene Möglichkeiten, amsynth auszuführen:</p>
+    <p xml:lang="fr">Il y a actuellement plusieurs manières de lancer amsynth :</p>
+    <ul>
+      <li>Stand-alone application using JACK, ALSA or OSS</li>
+      <li xml:lang="de">Eigenständige Anwendung unter Verwendung von JACK, ALSA oder OSS</li>
+      <li xml:lang="fr">Application autonome utilisant JACK, ALSA, ou OSS</li>
+      <li>DSSI plug-in</li>
+      <li xml:lang="de">DSSI-Plugin</li>
+      <li xml:lang="fr">greffon DSSI</li>
+      <li>LV2 plug-in</li>
+      <li xml:lang="de">LV2-Plugin</li>
+      <li xml:lang="fr">greffon LV2</li>
+      <li>VST plug-in</li>
+      <li xml:lang="de">VST-Plugin</li>
+      <li xml:lang="fr">greffon VST</li>
+    </ul>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image width="616" height="462">http://amsynth.github.io/images/ScreenShot.png</image>
+      <caption>AMSYNTH Main Window</caption>
+    </screenshot>
+  </screenshots>
+  <provides>
+    <binary>amsynth</binary>
+  </provides>
+  <update_contact>nick_AT_nickdowell.com</update_contact>
+  <translation type="gettext">amsynth</translation>
+</component>

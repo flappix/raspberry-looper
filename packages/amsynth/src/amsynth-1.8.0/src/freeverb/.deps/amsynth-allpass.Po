@@ -1,0 +1,12 @@
+src/freeverb/amsynth-allpass.o: src/freeverb/allpass.cpp \
+ /usr/include/stdc-predef.h src/freeverb/allpass.hpp \
+ src/freeverb/denormals.h \
+ /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/8.2.0/include/float.h
+
+/usr/include/stdc-predef.h:
+
+src/freeverb/allpass.hpp:
+
+src/freeverb/denormals.h:
+
+/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/8.2.0/include/float.h:

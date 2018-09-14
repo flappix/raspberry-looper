@@ -1,0 +1,12 @@
+src/freeverb/amsynth_lv2_la-comb.lo: src/freeverb/comb.cpp \
+ /usr/include/stdc-predef.h src/freeverb/comb.hpp \
+ src/freeverb/denormals.h \
+ /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/8.2.0/include/float.h
+
+/usr/include/stdc-predef.h:
+
+src/freeverb/comb.hpp:
+
+src/freeverb/denormals.h:
+
+/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/8.2.0/include/float.h:

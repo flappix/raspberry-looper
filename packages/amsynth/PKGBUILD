@@ -1,0 +1,36 @@
+# Maintainer : David Runge <dave@sleepmap.de>
+# Contributor: speps <speps at aur dot archlinux dot org>
+# Contributor: Alessio Biancalana <dottorblaster@gmail.com>
+
+pkgname=amsynth
+pkgver=1.8.0
+pkgrel=4
+pkgdesc="Analogue Modeling SYNTHesizer"
+arch=('x86_64' 'armv7h')
+url="https://amsynth.github.io/"
+license=('GPL2')
+groups=('dssi-plugins' 'ladspa-plugins' 'pro-audio')
+depends=('gtk2' 'jack' 'liblo')
+makedepends=('dssi' 'ladspa' 'intltool')
+source=("https://github.com/amsynth/amsynth/releases/download/release-${pkgver}/amsynth-${pkgver}.tar.bz2")
+sha512sums=('a47489b103dbdd1cb2233d8629acfda2a1d26ac1f7ea5b8c4e7925676842cac21758ca94b50894e71426517bd826e9a9b6fd26800516054e24d62f7cbce4f0f9')
+
+build() {
+  cd "${pkgname}-${pkgver}"
+  ./configure --prefix=/usr \
+    --with-alsa \
+    --with-jack \
+    --with-sndfile \
+    --with-dssi 
+    #--with-lv2 \
+    #--with-vst \
+    #--with-pandoc
+  make
+}
+
+package() {
+  cd "${pkgname}-${pkgver}"
+  make DESTDIR="$pkgdir/" install
+  install -vDm 644 {AUTHORS,NEWS,README} \
+    -t "${pkgdir}/usr/share/doc/${pkgname}/"
+}

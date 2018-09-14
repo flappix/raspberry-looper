@@ -1,0 +1,32 @@
+dbus[8015]: Unable to set up transient service directory: XDG_RUNTIME_DIR "/run/user/1001" is owned by uid 1001, not our uid 0
+no message buffer overruns
+no message buffer overruns
+no message buffer overruns
+Forking... child PID: 8031
+jackdmp 1.9.12
+Copyright 2001-2005 Paul Davis and others.
+Copyright 2004-2016 Grame.
+Copyright 2016-2017 Filipe Coelho.
+jackdmp comes with ABSOLUTELY NO WARRANTY
+This is free software, and you are welcome to redistribute it
+under certain conditions; see the file COPYING for details
+JACK server starting in realtime mode with priority 10
+self-connect-mode is "Don't restrict self connect requests"
+audio_reservation_init
+Acquire audio card Audio0
+creating alsa driver ... hw:0|hw:0|128|2|44100|0|0|nomon|swmeter|-|32bit
+
+
+ATTENTION: The playback device "hw:0" is already in use. Please stop the application using it and run JACK again
+Released audio card Audio0
+audio_reservation_finish
+Cannot initialize driver
+JackServer::Open failed with -1
+Failed to open server
+jackdmp 1.9.12
+Copyright 2001-2005 Paul Davis and others.
+Copyright 2004-2016 Grame.
+Copyright 2016-2017 Filipe Coelho.
+jackdmp comes with ABSOLUTELY NO WARRANTY
+This is free software, and you are welcome to redistribute it
+under certain conditions; see the file COPYING for details
