@@ -1,0 +1,718 @@
+no message buffer overruns
+no message buffer overruns
+no message buffer overruns
+jackdmp 1.9.12
+Copyright 2001-2005 Paul Davis and others.
+Copyright 2004-2016 Grame.
+Copyright 2016-2017 Filipe Coelho.
+jackdmp comes with ABSOLUTELY NO WARRANTY
+This is free software, and you are welcome to redistribute it
+under certain conditions; see the file COPYING for details
+JACK server starting in realtime mode with priority 10
+self-connect-mode is "Don't restrict self connect requests"
+audio_reservation_init
+Acquire audio card Audio2
+Acquire audio card Audio1
+creating alsa driver ... hw:PCH,0|hw:CODEC|256|2|44100|0|0|nomon|swmeter|-|32bit
+configuring for 44100Hz, period = 256 frames (5.8 ms), buffer = 2 periods
+ALSA: final selected sample format for capture: 16bit little-endian
+ALSA: use 2 periods for capture
+ALSA: final selected sample format for playback: 32bit integer little-endian
+ALSA: use 2 periods for playback
+scan: added port hw:3,0,0 in-hw-3-0-0-nanoKONTROL2-MIDI-1
+scan: added port hw:3,0,0 out-hw-3-0-0-nanoKONTROL2-MIDI-1
+scan: opened port hw:3,0,0 in-hw-3-0-0-nanoKONTROL2-MIDI-1
+scan: opened port hw:3,0,0 out-hw-3-0-0-nanoKONTROL2-MIDI-1
+Unknown destination port in attempted (dis)connection src_name [Hydrogen:out_L] dst_name [alsa_pcm:playback_1]
+JackGraphManager::Connect already connected port_src = 51 port_dst = 4
+JackGraphManager::Connect already connected port_src = 42 port_dst = 4
+JackGraphManager::Connect already connected port_src = 7 port_dst = 9
+JackGraphManager::Disconnect not connected port_src = 48 port_dst = 44
+JackGraphManager::Disconnect not connected port_src = 48 port_dst = 56
+JackGraphManager::Disconnect not connected port_src = 7 port_dst = 44
+JackGraphManager::Disconnect not connected port_src = 7 port_dst = 56
+JackGraphManager::Connect already connected port_src = 7 port_dst = 9
+JackGraphManager::Connect already connected port_src = 2 port_dst = 136
+JackGraphManager::Connect already connected port_src = 1 port_dst = 139
+JackGraphManager::Connect already connected port_src = 140 port_dst = 125
+JackGraphManager::Connect already connected port_src = 141 port_dst = 126
+JackGraphManager::Connect already connected port_src = 1 port_dst = 133
+JackGraphManager::Connect already connected port_src = 113 port_dst = 3
+JackGraphManager::Connect already connected port_src = 114 port_dst = 4
+JackGraphManager::Connect already connected port_src = 1 port_dst = 111
+JackGraphManager::Connect already connected port_src = 137 port_dst = 125
+JackGraphManager::Connect already connected port_src = 138 port_dst = 126
+JackGraphManager::Connect already connected port_src = 127 port_dst = 3
+JackGraphManager::Connect already connected port_src = 128 port_dst = 4
+JackGraphManager::Connect already connected port_src = 142 port_dst = 3
+JackGraphManager::Connect already connected port_src = 143 port_dst = 4
+JackGraphManager::Connect already connected port_src = 1 port_dst = 129
+JackGraphManager::Connect already connected port_src = 2 port_dst = 130
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 12 name = amsynth
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 3 name = effect_0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 10 name = a2j
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 17 name = MidiManager
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 2 name = mod-host
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 12
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 2
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 17
+Jack main caught signal 15
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 15 name = hydrogen-midi
+Cannot write socket fd = 59 err = Broken pipe
+JackRequest::DeactivateClient write error ref = 15
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 11 name = sooperlooper
+JackEngine::ClientKill ref = 11 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 11
+Cannot write socket fd = 25 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 28 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 31 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 34 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 37 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 40 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 43 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 55 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 58 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = sooperlooper notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 13 name = aubio
+JackEngine::ClientKill ref = 13 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 13
+Cannot write socket fd = 25 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 28 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 31 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 34 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 37 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 40 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 43 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 58 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = aubio notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 14 name = Hydrogen
+JackEngine::ClientKill ref = 14 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 14
+Cannot write socket fd = 25 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = Hydrogen notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 28 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = Hydrogen notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 31 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = Hydrogen notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 34 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = Hydrogen notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 37 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = Hydrogen notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 40 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = Hydrogen notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 43 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = Hydrogen notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = Hydrogen notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = Hydrogen notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 3 name = effect_0
+JackEngine::ClientKill ref = 3 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 3
+Cannot write socket fd = 28 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_0 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 31 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_0 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 34 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_0 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 37 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_0 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 40 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_0 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 43 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_0 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_0 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_0 notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 4 name = effect_1
+JackEngine::ClientKill ref = 4 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 4
+Cannot write socket fd = 31 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_1 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 34 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_1 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 37 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_1 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 40 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_1 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 43 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_1 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_1 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_1 notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 5 name = effect_2
+JackEngine::ClientKill ref = 5 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 5
+Cannot write socket fd = 34 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_2 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 37 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_2 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 40 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_2 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 43 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_2 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_2 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_2 notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 6 name = effect_3
+JackEngine::ClientKill ref = 6 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 6
+Cannot write socket fd = 37 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_3 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 40 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_3 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 43 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_3 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_3 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_3 notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 7 name = effect_4
+JackEngine::ClientKill ref = 7 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 7
+Cannot write socket fd = 40 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_4 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 43 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_4 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_4 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_4 notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 8 name = effect_5
+JackEngine::ClientKill ref = 8 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 8
+Cannot write socket fd = 43 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_5 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_5 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_5 notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 9 name = effect_6
+JackEngine::ClientKill ref = 9 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 9
+Cannot write socket fd = 61 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_6 notification = 1 val1 = 0 val2 = 0
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = effect_6 notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 15 name = hydrogen-midi
+JackEngine::ClientKill ref = 15 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 15
+Cannot write socket fd = 64 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = hydrogen-midi notification = 1 val1 = 0 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 16 name = fluidsynth
+JackEngine::ClientKill ref = 16 cannot be removed from the graph !!
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 16
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 10
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 137 val2 = 125
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 134 val2 = 125
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 131 val2 = 125
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 140 val2 = 125
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 138 val2 = 126
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 135 val2 = 126
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 132 val2 = 126
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 141 val2 = 126
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 1 val2 = 129
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 2 val2 = 130
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 1 val2 = 133
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 2 val2 = 136
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 1 val2 = 139
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 127 val2 = 3
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 128 val2 = 4
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 142 val2 = 3
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 12 val1 = 143 val2 = 4
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 115 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 117 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 119 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 121 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 123 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 125 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 126 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 129 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 130 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 133 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 136 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 139 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 116 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 118 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 120 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 122 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 124 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 127 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 128 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 131 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 132 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 134 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 135 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 137 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 138 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 140 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 141 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 142 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 143 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 144 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 145 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 116080 err = Connection timed out
+JackEngine::ClientDeactivate wait error ref = 18 name = ardour
+JackEngine::ClientKill ref = 18 cannot be removed from the graph !!
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 115 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 117 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 119 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 121 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 123 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 125 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 126 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 129 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 130 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 133 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 136 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 139 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 116 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 118 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 120 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 122 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 124 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 127 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 128 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 131 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 132 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 134 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 135 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 137 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 138 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 140 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 141 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 142 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 143 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 144 val2 = 0
+Cannot write socket fd = 70 err = Broken pipe
+CheckRes error
+Could not write notification
+ClientNotify fails name = ardour notification = 10 val1 = 145 val2 = 0
+JackPosixProcessSync::LockedTimedWait error usec = 23216 err = Connection timed out
+JackEngine::ClientCloseAux wait error ref = 18

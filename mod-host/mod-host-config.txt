@@ -3,8 +3,8 @@ midi_map 0 gain 0 0 -24 24
 add http://calf.sourceforge.net/plugins/Compressor 1
 midi_map 1 threshold 0 1 0.000976563 1
 midi_map 1 ratio 0 2 1 20
-add http://lv2plug.in/plugins/adelay 2
-midi_map 2 div 0 3 4 8
+add http://lv2plug.in/plugins/bdelay 2
+midi_map 2 div 0 3 4 16
 midi_map 2 feedback 0 4 0 100
 midi_map 2 drywet 0 5 0 100
 add http://calf.sourceforge.net/plugins/Reverb 3
