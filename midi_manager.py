@@ -83,7 +83,7 @@ def setup_connections():
 	global audio_ports
 	global my_midi_ports
 	
-	time.sleep (1000)
+	time.sleep (1)
 	
 	all_audio_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.Port]
 	port_desc = [('capture_1', ['system:capture_1']),
@@ -357,7 +357,7 @@ def process_korg_in (cc, value):
 					disconnect_ports (midi_ports, 'korg_in', 'mod-host')
 					
 					connect_ports (audio_ports, 'fx_out_6', 'playback_1')
-					connect_ports (auido_ports, 'fx_out_6', 'playback_2')
+					connect_ports (audio_ports, 'fx_out_6', 'playback_2')
 					
 			elif cc == spec_button ('fx'):
 				if mode != 'fx':
