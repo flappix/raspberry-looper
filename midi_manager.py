@@ -42,7 +42,6 @@ if gpio:
 
 started = False
 jackclient = jack.Client ('MidiManager')
-#jackclient.activate()
 
 modhost_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 modhost_client.connect ( ("localhost", 5555) )
@@ -88,8 +87,6 @@ def setup_connections():
 				 ('capture_2', ['system:capture_2']),
 				 ('playback_1', ['system:playback_1']),
 				 ('playback_2', ['system:playback_2']),
-				 #('rr_in', ['rakarrack:in_1']),
-				 #('rr_out', ['rakarrack:out_1']),
 				 ('hydrogen_out', ['Hydrogen', 'out_R']),
 				 ('aubio_in', ['aubio', 'in']),
 				 ('amsynth_out', ['amsynth', 'R out']),
@@ -103,9 +100,6 @@ def setup_connections():
 	audio_ports = {k: getPort (all_audio_ports, v) for (k, v) in port_desc}
 
 	# connecting ports
-
-	#connect_ports (audio_ports, 'capture_1', 'rr_in')
-	#connect_ports (audio_ports, 'capture_2', 'rr_in')
 
 	connect_ports (audio_ports, 'capture_1', 'aubio_in')
 	connect_ports (audio_ports, 'capture_2', 'aubio_in')
@@ -147,7 +141,6 @@ def setup_connections():
 
 	connect_ports (midi_ports, 'korg_in', 'sl')
 	connect_ports (midi_ports, 'korg_in', 'hydrogen')
-	#connect_ports (midi_ports, 'korg_in', 'rr')
 	disconnect_ports (midi_ports, 'korg_in', 'mod-host')
 
 	# own midi ports
@@ -244,15 +237,6 @@ fluidsynth = ['synth', 'drum']  # light synth and drum up to indicate we are sel
 ## variables
 ########################################################################
 
-#midi = {'korg_in': rtmidi.MidiIn(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'korg_out': rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'sl_out': rtmidi.MidiOut(), 'rr_out': rtmidi.MidiOut(), 'amsynth_out': rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'fluidsynth_out': rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)), 'hydrogen_out':  rtmidi.MidiOut(midiutil.get_api_from_environment(rtmidi.API_UNIX_JACK)) }
-#queues = { 'out': {}, 'in': {} }
-#for i in midi:
-#	if 'out' in i:
-#		queues['out'][i] = []
-#					  select first loop						 	select loop mode
-#queues['out']['korg_out'] = [button(1, 1), button(1, 3), spec_button ('loop')]
-#queues['out']['sl_out'] = [button (1, 1), ] # select first loop
-
 osc_writer = None
 vosc_reader = None
 osc_data = None
@@ -262,10 +246,6 @@ loop_state = []
 
 
 msg = {'record': [144,0,1], 'sync': [144,1,1], 'desync': [144,2,1], 'playsync': [144,3,1], 'deplaysync': [144,4,1], 'incr_bpm': [144,6,1]}
-#footswitch = None
-#for i in devices.mice:
-#	if 'FootSwitch' in i.name:
-#		footswitch = i 
 
 curr_loop = 1
 sync_switch = True
@@ -281,12 +261,15 @@ led_buttons = list(range(32+1, 39)) + list(range(32+1, 39)) + list(range(41+1,46
 display_state = {i: (False, led_buttons[i]) for i in range (len (led_buttons)) };
 
 
-# replaces read_korg $ write
+
+########################################################################
+## process
+########################################################################
+
 # reads and writes all midi events
 i = 0
 @jackclient.set_process_callback
 def process(frames):
-	#midi_ports['korg_out'].clear_buffer()
 	global my_midi_ports
 	global i
 	global pedal_pressed
@@ -298,11 +281,9 @@ def process(frames):
 		my_midi_ports['amsynth_out'].clear_buffer()
 
 		if i == 0:
-			#queues['out']['korg_out'] = [button(1, 1), button(1, 3), spec_button ('loop')]
 			my_midi_ports['korg_out'].write_midi_event (0, (176, button (curr_loop, 1), 127))
 			my_midi_ports['korg_out'].write_midi_event (0, (176, button (curr_loop, 3), 127))
 			my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button ('loop'), 127))
-			#MAYBE we need this?
 			my_midi_ports['sl_out'].write_midi_event (0, (176, button (1, 1), 1) ) # select first loop
 		
 		i += 1
@@ -325,36 +306,22 @@ def process(frames):
 def read_pedal():
 	global sync_switch
 	global pedal_pressed
-#	global footswitch
 	
 	last_time = 0
 	while True:
+		print('wait for input')
 		if gpio:
 			GPIO.wait_for_edge(3, GPIO.FALLING)
 		else:
-			print('wait for input')
 			input()
 		
 		if time.time() - last_time > 0.4:
 			print ("Record")
-			#if sync_switch:
-			#	queues['out']['korg_out'].append ( spec_button ('record') )
-				#queues['out']['sl_out'].append (msg['desync'])
-				#queues['out']['sl_out'].append (msg['deplaysync'])
-			#else:
-			#	queues['out']['korg_out'].append ( spec_button ('record', False) )
-				#queues['out']['sl_out'].append (msg['sync'])
-				#queues['out']['sl_out'].append (msg['playsync'])
-		
-			#queues['out']['sl_out'].append (msg['record'])
 			pedal_pressed = True
 			
 			sync_switch = not sync_switch
 			last_time = time.time()
 
-########################################################################
-## process
-########################################################################
 
 def process_korg_in (cc, value):
 	global curr_loop
@@ -371,7 +338,6 @@ def process_korg_in (cc, value):
 		if cc == spec_button ('save_blink'):
 			poweroff_counter += 1
 			if poweroff_counter == 3:
-				#call (["systemctl", "stop", "looper.service"])
 				call (["poweroff"])
 				
 		else :
@@ -470,8 +436,6 @@ def process_korg_in (cc, value):
 				if mode == 'loop':
 					if cc >= 32 and cc <= 39: # select loop
 						if cc - 31 != curr_loop:
-							#queues['out']['korg_out'].append ( button (curr_loop, 1, False) )
-							#queues['out']['korg_out'].append ( button (curr_loop, 3, False) )
 							
 							my_midi_ports['korg_out'].write_midi_event (0, (176, button (curr_loop, 1), 0))
 							my_midi_ports['korg_out'].write_midi_event (0, (176, button (curr_loop, 3), 0))
@@ -484,14 +448,11 @@ def process_korg_in (cc, value):
 							
 							
 					if cc >= 48 and cc <= 55 and cc == 127: # pause loop
-						#time.sleep (0.01)
 						liblo.send (osc_writer, "/sl/" + str(cc - 48) + "/get", "state", "osc.udp://localhost:9952", "osc.udp://localhost:9952")
 						osc_reader.recv (100)
 						if osc_data == 14:
-							#queues['out']['korg_out'].append ( button (msg[1] - 47, 2) )
 							my_midi_ports['korg_out'].write_midi_event (0, (176, buttonn (cc - 47, 2), 127))
 						else:
-							#queues['out']['korg_out'].append ( button (msg[1] - 47, 2, False) )
 							my_midi_ports['korg_out'].write_midi_event (0, (176, buttonn (cc - 47, 2), 0))
 						
 				elif mode == 'fx':
@@ -508,26 +469,17 @@ def process_korg_in (cc, value):
 						synth_mode = 'amsynth' if mode == 'synth' else 'fluidsynth'
 						synth_port = synth_mode + '_out'
 							
-						#time.sleep (0.3)
 						b = button2Int (cc)
 						if b != None:
 							my_midi_ports[synth_port].write_midi_event (0, (192, b))
 						
-						#queues['out']['korg_out'].append ([176, selected[synth_mode], 0])
 						my_midi_ports['korg_out'].write_midi_event (0, (176, selected[synth_mode], 0))
-						
 						selected[synth_mode] = cc
-						#queues['out']['korg_out'].append ([176, selected[synth_mode], 127])
 						my_midi_ports['korg_out'].write_midi_event (0, (176, selected[synth_mode], 127))
 						
 					elif mode == 'synth' and cc == spec_button ('sync_lfo'):
-						#						min max values for lfo in amsynth, min max bpm defined in hydrogen
-						#print ("bpm: " + str(detect_bpm()) )
-						#print ("freq: " + str(detect_bpm()/60) )
 						freq_v =  math.sqrt (detect_bpm() / 60);
-						#print ("sqrt freq: " + str(freq_v))
 						lfo_speed = linear_trans ( 0, 127, 0, 7.5, freq_v)
-						#lfo_speed = math.log (detect_bpm() / 60, 2)
 						midi_ports['amsynth_out'].write_midi_event ([176, 3, lfo_speed])
 				elif mode == 'drum':
 					if cc in buttonList:
@@ -536,7 +488,6 @@ def process_korg_in (cc, value):
 						my_midi_ports['korg_out'].write_midi_event (0, (176, cc, 127*int(selected[mode][b])))
 
 def save():
-	#print ('debug: saving')
 	if os.path.exists (save_dir):
 		i = 0
 		saved = False
@@ -576,7 +527,6 @@ def updateLeds (pmode, cmode): # prev, curr
 	# update mode leds
 	if isinstance (pmode, list):
 		for pm in pmode:
-			#queues['out']['korg_out'].append ( spec_button (pm, False) )
 			my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button (pm), 0))
 	else:
 		my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button (pmode), 0))
@@ -598,13 +548,10 @@ def updateLeds (pmode, cmode): # prev, curr
 			if selected[pmode][i]:
 				my_midi_ports['korg_out'].write_midi_event (0, (176, int2button(i), 0))
 	elif pmode == fluidsynth:
-		#queues['out']['korg_out'].append ([176, selected['fluidsynth'], 0])
 		my_midi_ports['korg_out'].write_midi_event (0, (176, selected['fluidsynth'], 0))
 	elif pmode == 'synth':
-		#queues['out']['korg_out'].append ([176, selected['amsynth'], 0])
 		my_midi_ports['korg_out'].write_midi_event (0, (176, selected['amsynth'], 0))
 	else:
-	#	queues['out']['korg_out'].append ([176, selected[pmode], 0])
 		my_midi_ports['korg_out'].write_midi_event (0, (176, selected[pmode], 0))
 	
 	# light up nes ones
@@ -617,10 +564,8 @@ def updateLeds (pmode, cmode): # prev, curr
 			if selected[cmode][i]:
 				my_midi_ports['korg_out'].write_midi_event (0, (176, int2button(i), 127))
 	elif cmode == fluidsynth:
-		#queues['out']['korg_out'].append ([176, selected['fluidsynth'], 127])
 		my_midi_ports['korg_out'].write_midi_event (0, (176, selected['fluidsynth'], 127))
 	elif cmode == 'synth':
-		#queues['out']['korg_out'].append ([176, selected['amsynth'], 127])
 		my_midi_ports['korg_out'].write_midi_event (0, (176, selected['amsynth'], 127))
 	else:
 		my_midi_ports['korg_out'].write_midi_event (0, (176, selected[cmode], 127))
@@ -631,7 +576,6 @@ def load():
 	global loop_state
 	global mode
 	
-	#queues['out']['korg_out'].append ( spec_button ('save_blink') )
 	midi_ports['korg_out'].write_midi_event ( spec_button ('save_blink') )
 
 	if os.path.exists (save_dir + str(curr_loaded) + "/"):
@@ -645,7 +589,6 @@ def load():
 		if os.path.exists (save_dir + str(curr_loaded) + "/bpm.txt"):
 			with open (save_dir + str(curr_loaded) + "/bpm.txt", 'r') as bpmfile:
 				bpm_sig = [176, 16, round ( linear_trans (0, 127, 40, 200, float ( bpmfile.readline() ) ) ) ]
-				#queues['out']['hydrogen_out'].append ( bpm_sig )
 				midi_ports['hydrogen'].write_midi_event ( bpm_sig )
 		
 		if os.path.exists (save_dir + str(curr_loaded) + "/beat.txt"):
@@ -673,7 +616,6 @@ def detect_bpm():
 	if os.path.exists ('/tmp/bpm-log.txt'):
 		with open ('/tmp/bpm-log.txt', 'r') as bpmfile:
 			return int( bpmfile.readline() )
-		#	queues['out']['amsynth_out'].append ( [176, 10, int( bpmfile.readline() ) ] )
 	
 	return 120
 	
@@ -715,9 +657,7 @@ except:
 
 try:
 	pass
-	#_thread.start_new_thread ( read_korg, () )
 	_thread.start_new_thread ( read_pedal, () )
-	#_thread.start_new_thread ( write, () )
 except:
 	print ("Error: unable to start thread: " + str(sys.exc_info()[0]))
 
