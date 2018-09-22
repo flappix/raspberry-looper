@@ -83,6 +83,8 @@ def setup_connections():
 	global audio_ports
 	global my_midi_ports
 	
+	time.sleep (1000)
+	
 	all_audio_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.Port]
 	port_desc = [('capture_1', ['system:capture_1']),
 				 ('capture_2', ['system:capture_2']),
