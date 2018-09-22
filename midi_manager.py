@@ -83,9 +83,7 @@ def setup_connections():
 	global audio_ports
 	global my_midi_ports
 	
-	time.sleep (1)
-	
-	all_audio_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.Port]
+	all_audio_ports = []
 	port_desc = [('capture_1', ['system:capture_1']),
 				 ('capture_2', ['system:capture_2']),
 				 ('playback_1', ['system:playback_1']),
@@ -100,8 +98,22 @@ def setup_connections():
 				 [('sl_in_' + str(i+1), ['sooperlooper', 'loop' + str(i) + '_in_1']) for i in range(8)] + \
 				 [('fx_in_' + str(i), ['effect_' + str(i), 'in']) for i in range(6+1)] + \
 				 [('fx_out_' + str(i), ['effect_' + str(i), 'out']) for i in range(6+1)]
+	
+	# wait until all ports are present			 
+	for (k, v) in port_desc:
+		tryagain = True
+		while tryagain:
+			print ("get port " + k)
+			all_audio_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.Port]
+			p = getPort (all_audio_ports, v)
+			
+			if p is None:
+				time.sleep (0.5)
+				
+			else:
+				tryagain = False
+	
 	audio_ports = {k: getPort (all_audio_ports, v) for (k, v) in port_desc}
-
 	# connecting ports
 
 	connect_ports (audio_ports, 'capture_1', 'aubio_in')
