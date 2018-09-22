@@ -21,8 +21,6 @@ sleep 1
 
 # start mod-host
 mod-host -p 5555
-sleep 1
-echo "load mod-host/mod-host-config.txt" | ncat localhost 5555
 
 sooperlooper -l 8 -c 1 -L sooperlooper/default_session.slsess -m sooperlooper/default_midi.slb > logs/sooperlooper.log 2>&1 &
 h2cli -s hydrogen/default.h2song > logs/hydrogen.log 2>&1 &

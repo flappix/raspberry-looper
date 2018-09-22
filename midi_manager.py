@@ -45,6 +45,7 @@ jackclient = jack.Client ('MidiManager')
 
 modhost_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 modhost_client.connect ( ("localhost", 5555) )
+modhost_client.send ( 'load mod-host/mod-host-config.txt'.encode() )
 
 def getPort (ports, keywords):
 	for i in ports:

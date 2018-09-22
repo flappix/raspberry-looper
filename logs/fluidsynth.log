@@ -6,3 +6,11 @@ ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
 ALSA lib pcm_dmix.c:1099:(snd_pcm_dmix_open) unable to open slave
 fluidsynth: warning: Found samples with invalid loops, audible glitches possible.
 fluidsynth: warning: No preset found on channel 9 [bank=128 prog=0]
+fluidsynth: error: Failed to bind server socket
+Failed to create the server.
+Continuing without it.
+FluidSynth runtime version 1.1.11
+Copyright (C) 2000-2018 Peter Hanappe and others.
+Distributed under the LGPL license.
+SoundFont(R) is a registered trademark of E-mu Systems, Inc.
+
