@@ -28,7 +28,7 @@ sooperlooper -l 8 -c 1 -L sooperlooper/default_session.slsess -m sooperlooper/de
 h2cli -s hydrogen/default.h2song > logs/hydrogen.log 2>&1 &
 amsynth -x > logs/amsynth.log 2>&1 &
 fluidsynth -s -i -m jack -g 2 fluidsynth/custom.sf2 > logs/fluidsynth.log 2>&1 &
-aubionotes > logs/aubio.log 2>&1 & #-B 1024 -H 1024 &
+/home/flappix/build/aubio/build/dist/usr/local/bin/aubionotes > logs/aubio.log 2>&1 & #-B 1024 -H 1024 &
 a2jmidid > logs/a2jmidid.log 2>&1 &
 
 sleep 2

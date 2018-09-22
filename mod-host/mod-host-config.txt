@@ -7,13 +7,16 @@ add http://lv2plug.in/plugins/bdelay 2
 midi_map 2 div 0 3 4 16
 midi_map 2 feedback 0 4 0 100
 midi_map 2 drywet 0 5 0 100
-add http://calf.sourceforge.net/plugins/Reverb 3
-midi_map 3 decay_time 0 16 0.4 15
-midi_map 3 dry 0 17 0 2
-midi_map 3 amount 0 18 0 2
-add http://pepper.distortion/PepperDistortion 4
-midi_map 4 treshold 0 6 0.1 1
-midi_map 4 pepper 0 7 0 1
+# add http://pepper.distortion/PepperDistortion 4
+# midi_map 4 treshold 0 6 0.1 1
+# midi_map 4 pepper 0 7 0 1
+add http://guitarix.sourceforge.net/plugins/gx_bossds1_#_bossds1_ 3
+midi_map 3 LEVEL 0 6 0 12
+midi_map 3 DRIVE 0 7 0 1
+add http://calf.sourceforge.net/plugins/Reverb 4
+midi_map 4 decay_time 0 16 0.4 15
+midi_map 4 dry 0 17 0 2
+midi_map 4 amount 0 18 0 2
 add http://calf.sourceforge.net/plugins/Equalizer8Band 5
 midi_map 5 hp_freq 0 19 10 400
 midi_map 5 hp_q 0 20 0.8 10
@@ -21,3 +24,8 @@ midi_map 5 lp_freq 0 21 400 2000
 midi_map 5 lp_q 0 22 0.8 10
 add http://lv2plug.in/plugins/eg-amp 6
 midi_map 6 gain 0 23 -24 24
+bypass 1 1
+bypass 2 1
+bypass 3 1
+bypass 4 1
+bypass 5 1

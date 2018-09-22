@@ -9,15 +9,29 @@ Bridge started
 Press ctrl-c to stop the bridge
 port created: Midi Through [14] (capture): Midi Through Port-0
 port created: Midi Through [14] (playback): Midi Through Port-0
-port created: amsynth [129] (playback): MIDI IN
-port created: amsynth [129] (capture): MIDI OUT
-port created: sooperlooper [130] (capture): sooperlooper
-port created: sooperlooper [130] (playback): sooperlooper
+port created: amsynth [130] (playback): MIDI IN
+port created: amsynth [130] (capture): MIDI OUT
+port created: sooperlooper [131] (capture): sooperlooper
+port created: sooperlooper [131] (playback): sooperlooper
 Bridge stopping...
+Cannot read socket fd = 4 err = Connection reset by peer
+Could not read result type = 7
+Cannot read socket fd = 6 err = Success
+CheckRes error
+JackSocketClientChannel read fail
+[33mWARNING: [0mJACK server shutdown notification received.
 port deleted: Midi Through [14] (capture): Midi Through Port-0
-port deleted: amsynth [129] (capture): MIDI OUT
-port deleted: sooperlooper [130] (capture): sooperlooper
+Server is not running
+port deleted: amsynth [130] (capture): MIDI OUT
+Server is not running
+port deleted: sooperlooper [131] (capture): sooperlooper
+Server is not running
 port deleted: Midi Through [14] (playback): Midi Through Port-0
-port deleted: amsynth [129] (playback): MIDI IN
-port deleted: sooperlooper [130] (playback): sooperlooper
+Server is not running
+port deleted: amsynth [130] (playback): MIDI IN
+Server is not running
+port deleted: sooperlooper [131] (playback): sooperlooper
+Server is not running
+Server is not running
+[31mERROR: [0ma2j_destroy: Cannot close jack client (-1)
 Bridge stopped
