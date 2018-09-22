@@ -391,7 +391,7 @@ def process_korg_in (cc, value):
 					connect_ports (midi_ports, 'korg_in', 'hydrogen')
 					
 					connect_ports (audio_ports, 'fx_out_6', 'playback_1')
-					connect_ports (auido_ports, 'fx_out_6', 'playback_2')
+					connect_ports (audio_ports, 'fx_out_6', 'playback_2')
 
 			elif cc == spec_button ('synth'):
 				
