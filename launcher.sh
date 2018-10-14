@@ -15,10 +15,10 @@ cd $home_dir
 
 mkdir -p /tmp/llogs/
 
-dbus-launch jackd -d alsa -X raw > /tmp/llogs/jack.log 2>&1 &
-#dbus-launch jackd -R -d alsa -r 44100 -p 128 -X raw &
+#dbus-launch jackd -d alsa -X raw > /tmp/llogs/jack.log 2>&1 &
+dbus-launch jackd -R -d alsa -r 44100 -p 128 -X raw > /tmp/llogs/jack.log &
 #/usr/bin/jackd -dalsa -r44100 -p256 -n2 -Xraw -D -Chw:PCH -Phw:PCH,0 > /tmp/llogs/jack.log 2>&1 &
-/usr/bin/jackd -dalsa -r44100 -p256 -n2 -Xraw -D -Chw:CODEC -Phw:PCH,0 > /tmp/llogs/jack.log 2>&1 &
+#/usr/bin/jackd -dalsa -r44100 -p256 -n2 -Xraw -D -Chw:CODEC -Phw:PCH,0 > /tmp/llogs/jack.log 2>&1 &
 sleep 1
 #rakarrack -n -b rakarrack/bank.rkrb -p 0 &
 
