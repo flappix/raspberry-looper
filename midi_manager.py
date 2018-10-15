@@ -296,11 +296,14 @@ def process(frames):
 	if (len(my_midi_ports)>0):
 		if pedal_pressed:
 			if not sync_switch:
-				my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button('record'), 127) )
+				#my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button('record'), 127) )
+				midi_queue.appendleft (['korg_out', 0, (176, spec_button('record'), 127)])
 			else:
-				my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button('record'), 0))
+				#my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button('record'), 0))
+				midi_queue.appendleft (['korg_out', 0, (176, spec_button('record'), 0)])
 			
-			my_midi_ports['sl_out'].write_midi_event (0, msg['record'])
+			#my_midi_ports['sl_out'].write_midi_event (0, msg['record'])
+			midi_queue.appendleft (['sl_out', 0, msg['record']])
 			pedal_pressed = False
 		
 		for i in range (len(midi_queue) -1, -1, -1):
