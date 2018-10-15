@@ -317,11 +317,11 @@ def process(frames):
 		my_midi_ports['fluidsynth_out'].clear_buffer()
 		my_midi_ports['amsynth_out'].clear_buffer()
 		
-	for offset, data in my_midi_ports['korg_in'].incoming_midi_events():
-		if len(data) == 3:
-			b1, b2, b3 = struct.unpack('3B', data)
-			process_korg_in (b2, b3)
-			print('input: ' + str(b2) + ', ' + str(b3))
+	#for offset, data in my_midi_ports['korg_in'].incoming_midi_events():
+	#	if len(data) == 3:
+	#		b1, b2, b3 = struct.unpack('3B', data)
+	#		process_korg_in (b2, b3)
+	#		print('input: ' + str(b2) + ', ' + str(b3))
 		
 def read_pedal():
 	global sync_switch
