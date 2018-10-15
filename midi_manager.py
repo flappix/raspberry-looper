@@ -291,6 +291,7 @@ disconnect_queue = collections.deque()
 @jackclient.set_process_callback
 def process(frames):
 	global my_midi_ports
+	global midi_queue
 	global pedal_pressed
 
 	if pedal_pressed:
