@@ -294,11 +294,6 @@ def process(frames):
 	global pedal_pressed
 
 	if (len(my_midi_ports)>0):
-		my_midi_ports['korg_out'].clear_buffer()
-		my_midi_ports['sl_out'].clear_buffer()
-		my_midi_ports['fluidsynth_out'].clear_buffer()
-		my_midi_ports['amsynth_out'].clear_buffer()
-		
 		if pedal_pressed:
 			if not sync_switch:
 				my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button('record'), 127) )
@@ -313,6 +308,11 @@ def process(frames):
 			print (q)
 			my_midi_ports[q[0]].write_midi_event (q[1], q[2])
 			del midi_queue[i]
+		
+		my_midi_ports['korg_out'].clear_buffer()
+		my_midi_ports['sl_out'].clear_buffer()
+		my_midi_ports['fluidsynth_out'].clear_buffer()
+		my_midi_ports['amsynth_out'].clear_buffer()
 		
 		for offset, data in my_midi_ports['korg_in'].incoming_midi_events():
 			if len(data) == 3:
