@@ -78,11 +78,13 @@ def disconnect_ports (ports, pin, pout):
 midi_ports = {}
 audio_ports = {}
 my_midi_ports = {}
+ports_ready = False
 
 def setup_connections():
 	global midi_ports
 	global audio_ports
 	global my_midi_ports
+	global ports_ready
 	
 	all_audio_ports = []
 	port_desc = [('capture_1', ['system:capture_1']),
@@ -171,6 +173,8 @@ def setup_connections():
 	jackclient.connect (my_midi_ports['sl_out'].name, midi_ports['sl'].name)
 	jackclient.connect (my_midi_ports['fluidsynth_out'].name, midi_ports['fluidsynth'].name)
 	jackclient.connect (my_midi_ports['amsynth_out'].name, midi_ports['amsynth'].name)
+	
+	ports_ready = True
 
 slider_lst_state = [-1]*8
 rot_lst_state = [-1]*8
@@ -292,36 +296,37 @@ disconnect_queue = collections.deque()
 def process(frames):
 	global my_midi_ports
 	global pedal_pressed
-
-	if pedal_pressed:
-		if not sync_switch:
-			#my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button('record'), 127) )
-			midi_queue.appendleft (['korg_out', 0, (176, spec_button('record'), 127)])
-		else:
-			#my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button('record'), 0))
-			midi_queue.appendleft (['korg_out', 0, (176, spec_button('record'), 0)])
-		
-		#my_midi_ports['sl_out'].write_midi_event (0, msg['record'])
-		midi_queue.appendleft (['sl_out', 0, msg['record']])
-		pedal_pressed = False
+	
+	if ports_ready:
+		if pedal_pressed:
+			if not sync_switch:
+				#my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button('record'), 127) )
+				midi_queue.appendleft (['korg_out', 0, (176, spec_button('record'), 127)])
+			else:
+				#my_midi_ports['korg_out'].write_midi_event (0, (176, spec_button('record'), 0))
+				midi_queue.appendleft (['korg_out', 0, (176, spec_button('record'), 0)])
 			
-	if (len(my_midi_ports)>0):
-		for i in range (len(midi_queue) -1, -1, -1):
-			q = midi_queue[i]
-			print (q)
-			my_midi_ports[q[0]].write_midi_event (q[1], q[2])
-			del midi_queue[i]
-		
-		my_midi_ports['korg_out'].clear_buffer()
-		my_midi_ports['sl_out'].clear_buffer()
-		my_midi_ports['fluidsynth_out'].clear_buffer()
-		my_midi_ports['amsynth_out'].clear_buffer()
-		
-	#for offset, data in my_midi_ports['korg_in'].incoming_midi_events():
-	#	if len(data) == 3:
-	#		b1, b2, b3 = struct.unpack('3B', data)
-	#		process_korg_in (b2, b3)
-	#		print('input: ' + str(b2) + ', ' + str(b3))
+			#my_midi_ports['sl_out'].write_midi_event (0, msg['record'])
+			midi_queue.appendleft (['sl_out', 0, msg['record']])
+			pedal_pressed = False
+				
+		if (len(my_midi_ports)>0):
+			for i in range (len(midi_queue) -1, -1, -1):
+				q = midi_queue[i]
+				print (q)
+				my_midi_ports[q[0]].write_midi_event (q[1], q[2])
+				del midi_queue[i]
+			
+			my_midi_ports['korg_out'].clear_buffer()
+			my_midi_ports['sl_out'].clear_buffer()
+			my_midi_ports['fluidsynth_out'].clear_buffer()
+			my_midi_ports['amsynth_out'].clear_buffer()
+			
+		for offset, data in my_midi_ports['korg_in'].incoming_midi_events():
+			if len(data) == 3:
+				b1, b2, b3 = struct.unpack('3B', data)
+				process_korg_in (b2, b3)
+				print('input: ' + str(b2) + ', ' + str(b3))
 		
 def read_pedal():
 	global sync_switch
