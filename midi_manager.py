@@ -381,6 +381,7 @@ def process_korg_in (cc, value):
 					disconnect_queue.appendleft ([midi_ports, 'korg_in', 'mod-host'])
 					connect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_1'])
 					connect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_2'])
+					connect_queue.appendleft ([audio_ports, 'fx_out_6', 'sl_in_all'])
 					
 			elif cc == spec_button ('fx'):
 				if mode != 'fx':
@@ -398,6 +399,7 @@ def process_korg_in (cc, value):
 					
 					connect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_1'])
 					connect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_2'])
+					connect_queue.appendleft ([audio_ports, 'fx_out_6', 'sl_in_all'])
 					
 			elif cc == spec_button ('drum'):
 				if mode != 'drum':
@@ -415,6 +417,7 @@ def process_korg_in (cc, value):
 					
 					connect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_1'])
 					connect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_2'])
+					connect_queue.appendleft ([audio_ports, 'fx_out_6', 'sl_in_all'])
 
 			elif cc == spec_button ('synth'):
 				
@@ -422,6 +425,7 @@ def process_korg_in (cc, value):
 				disconnect_queue.appendleft ([midi_ports, 'korg_in', 'mod-host'])
 				disconnect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_1'])
 				disconnect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_2'])
+				disconnect_queue.appendleft ([audio_ports, 'fx_out_6', 'sl_in_all'])
 				
 				if mode != 'synth': # amsynth
 					updateLeds (mode, 'synth')
@@ -518,7 +522,7 @@ def process_connect_queue():
 	global connect_queue
 	global disconnect_queue
 	
-	while started:
+	while started and ports_ready:
 		for i in range (len(connect_queue) -1, -1, -1):
 			q = connect_queue[i]
 			connect_ports (q[0], q[1], q[2])
