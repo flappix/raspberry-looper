@@ -423,6 +423,7 @@ def process_korg_in (cc, value):
 				
 				disconnect_queue.appendleft ([midi_ports, 'korg_in', 'sl'])
 				disconnect_queue.appendleft ([midi_ports, 'korg_in', 'mod-host'])
+				disconnect_queue.appendleft ([midi_ports, 'korg_in', 'hydrogen'])
 				disconnect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_1'])
 				disconnect_queue.appendleft ([audio_ports, 'fx_out_6', 'playback_2'])
 				disconnect_queue.appendleft ([audio_ports, 'fx_out_6', 'sl_in_all'])
