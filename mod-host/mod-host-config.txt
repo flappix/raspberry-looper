@@ -7,9 +7,6 @@ add http://lv2plug.in/plugins/bdelay 2
 midi_map 2 div 0 3 4 16
 midi_map 2 feedback 0 4 0 100
 midi_map 2 drywet 0 5 0 100
-# add http://pepper.distortion/PepperDistortion 4
-# midi_map 4 treshold 0 6 0.1 1
-# midi_map 4 pepper 0 7 0 1
 add http://guitarix.sourceforge.net/plugins/gx_bossds1_#_bossds1_ 3
 midi_map 3 LEVEL 0 6 0 12
 midi_map 3 DRIVE 0 7 0 1
