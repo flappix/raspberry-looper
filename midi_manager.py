@@ -514,6 +514,8 @@ def process_korg_in (cc, value):
 						disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
 					elif pmode == loop_fx:
 						disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-loop_' + str(curr_loop - 1)])
+					elif pmode == 'drum':
+						disconnect_queue.append ([midi_ports, 'korg_in', 'hydrogen'])
 					
 			elif cc == spec_button ('fx'):
 				if mode != 'fx':
@@ -538,6 +540,7 @@ def process_korg_in (cc, value):
 						disconnect_queue.append ([midi_ports, 'korg_in', 'hydrogen'])
 					elif pmode == loop_fx:
 						disconnect_midi_loops()
+						
 					
 					connect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
 					
@@ -694,14 +697,15 @@ def process_midi_queue():
 	global midi_queue
 	
 	while started and ports_ready:
-		my_midi_ports['korg_out'].clear_buffer()
-		my_midi_ports['sl_out'].clear_buffer()
-		my_midi_ports['fluidsynth_out'].clear_buffer()
-		my_midi_ports['amsynth_out'].clear_buffer()
+		#my_midi_ports['korg_out'].clear_buffer()
+		#my_midi_ports['sl_out'].clear_buffer()
+		#my_midi_ports['fluidsynth_out'].clear_buffer()
+		#my_midi_ports['amsynth_out'].clear_buffer()
 		
 		while midi_queue: # is empty?
 			q = midi_queue.popleft()
 			print ('write midi event: ' + str(q))
+			q[0].clear_buffer()
 			my_midi_ports[q[0]].write_midi_event (q[1], q[2])
 		
 		time.sleep (0.01)
