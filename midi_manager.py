@@ -697,16 +697,16 @@ def process_midi_queue():
 	global midi_queue
 	
 	while started and ports_ready:
-		#my_midi_ports['korg_out'].clear_buffer()
-		#my_midi_ports['sl_out'].clear_buffer()
-		#my_midi_ports['fluidsynth_out'].clear_buffer()
-		#my_midi_ports['amsynth_out'].clear_buffer()
+		my_midi_ports['korg_out'].clear_buffer()
+		my_midi_ports['sl_out'].clear_buffer()
+		my_midi_ports['fluidsynth_out'].clear_buffer()
+		my_midi_ports['amsynth_out'].clear_buffer()
 		
 		while midi_queue: # is empty?
 			q = midi_queue.popleft()
 			print ('write midi event: ' + str(q))
-			my_midi_ports[q[0]].clear_buffer()
 			my_midi_ports[q[0]].write_midi_event (q[1], q[2])
+			my_midi_ports[q[0]].clear_buffer()
 		
 		time.sleep (0.01)
 
