@@ -705,7 +705,7 @@ def process_midi_queue():
 		while midi_queue: # is empty?
 			q = midi_queue.popleft()
 			print ('write midi event: ' + str(q))
-			q[0].clear_buffer()
+			my_midi_ports[q[0]].clear_buffer()
 			my_midi_ports[q[0]].write_midi_event (q[1], q[2])
 		
 		time.sleep (0.01)
