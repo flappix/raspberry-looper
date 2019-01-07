@@ -2,6 +2,33 @@
 kill_str="killall -s KILL aubionotes; killall -s KILL mod-host; killall -s KILL a2jmidid; killall -s KILL amsynth; killall -s KILL h2cli; killall -s KILL slgui; killall -s KILL sooperlooper; killall -s KILL alsa_in; killall -s KILL fluidsynth; exit" # killall -s KILL jackd;
 trap "$kill_str" SIGINT SIGTERM
 
+FXLOOPS=1
+EXIT=0
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -l|--fxloops)
+    FXLOOPS="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -x|--exit)
+    EXIT=1
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
 stop()
 {
 	eval $kill_str
@@ -24,9 +51,13 @@ start()
 	sleep 3
 	#rakarrack -n -b rakarrack/bank.rkrb -p 0 &
 
-	# start mod-host
 	mod-host -p 5555 > /tmp/llogs/mod-host-fx.log 2>&1
-	mod-host -p 5556 > /tmp/llogs/mod-host-loop1.log 2>&1
+	
+	# start mod-host loop fx
+	for i in $(seq 1 $FXLOOPS)
+	do
+		mod-host -p $((5555+$i)) > /tmp/llogs/mod-host-loop$i.log 2>&1
+	done
 	
 	sooperlooper -l 8 -c 1 -L sooperlooper/default_session.slsess -m sooperlooper/default_midi.slb > /tmp/llogs/sooperlooper.log 2>&1 &
 	h2cli -s hydrogen/default.h2song > /tmp/llogs/hydrogen.log 2>&1 &
@@ -38,11 +69,11 @@ start()
 
 	sleep 2
 
-	./midi_manager.py
+	./midi_manager.py $FXLOOPS
 
 }
 
-if [ "$1" == "-x" ]
+if [ $EXIT == 1 ]
 then
 	stop
 else
