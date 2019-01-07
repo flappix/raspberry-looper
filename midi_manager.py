@@ -377,19 +377,20 @@ disconnect_queue = collections.deque()
 ########################################################################
 
 def connect_loop (disconnect=False):
-		if curr_loop <= fx_loops: # curr_loop is fx loop
-			connect_ports (audio_ports, 'capture_1', 'sl_in_' + str(curr_loop - 1), disconnect) 
-			connect_ports (audio_ports, 'capture_2', 'sl_in_' + str(curr_loop - 1), disconnect)
-		else: # curr_loop is normal loop
-			connect_ports (audio_ports, 'fx_out_6', 'sl_in_' + str(curr_loop - 1), disconnect)
+	queue = connect_queue if not disconnect else disconnect_queue
+	if curr_loop <= fx_loops: # curr_loop is fx loop
+		queue.append ([audio_ports, 'capture_1', 'sl_in_' + str(curr_loop - 1)]) 
+		queue.append ([audio_ports, 'capture_2', 'sl_in_' + str(curr_loop - 1)])
+	else: # curr_loop is normal loop
+		queue.append ([audio_ports, 'fx_out_6', 'sl_in_' + str(curr_loop - 1)])
 
 def disconnect_loop():
 	connect_loop (True)
 
 def disconnect_midi_loops():
-	for i in range(fx_loops):
-		disconnect_ports (midi_ports, 'korg_in', 'mod-host-loop_' + str(i))
-	
+	disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-loop_' + str(curr_loop - 1)])
+	#for i in range(fx_loops):
+	#	disconnect_ports (midi_ports, 'korg_in', 'mod-host-loop_' + str(i))
 
 ########################################################################
 ## process
@@ -423,12 +424,6 @@ def process(frames):
 			#my_midi_ports['sl_out'].write_midi_event (0, msg['record'])
 			midi_queue.append (['sl_out', 0, msg['record']])
 			pedal_pressed = False
-			
-				
-		while midi_queue: # is empty?
-			q = midi_queue.popleft()
-			print (q)
-			my_midi_ports[q[0]].write_midi_event (q[1], q[2])
 			
 		for offset, data in my_midi_ports['korg_in'].incoming_midi_events():
 			if len(data) == 3:
@@ -502,6 +497,8 @@ def process_korg_in (cc, value):
 		else :
 			poweroff_counter = 0
 			
+			pmode = mode
+			
 			# select mode
 			if cc == spec_button ('loop'):
 				if mode != 'loop':
@@ -509,94 +506,102 @@ def process_korg_in (cc, value):
 					mode = 'loop'
 					
 					connect_queue.append ([midi_ports, 'korg_in',  'sl'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
-					disconnect_midi_loops()
-					connect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
-					connect_queue.append ([audio_ports, 'fx_out_6', 'playback_2'])
 					
-					#connect_queue.append ([audio_ports, 'capture_1', 'sl_in_all'])
-					#connect_queue.append ([audio_ports, 'capture_2', 'sl_in_all'])
-					
-					connect_loop()
+					if pmode == 'synth':
+						disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
+						connect_loop()
+					elif pmode == fluidsynth:
+						disconnect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
+						connect_loop()
+					elif pmode == 'fx':
+						disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
+					elif pmode == loop_fx:
+						disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-loop_' + str(curr_loop - 1)])
 					
 			elif cc == spec_button ('fx'):
 				if mode != 'fx':
 					updateLeds (mode, 'fx')
 					mode = 'fx'
 					
-					disconnect_queue.append ([midi_ports, 'aubio', 'amsynth'])
-					disconnect_queue.append ([midi_ports, 'aubio', 'fluidsynth'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'sl'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'hydrogen'])
-					disconnect_midi_loops()
+					if pmode == 'synth':
+						disconnect_queue.append ([midi_ports, 'aubio', 'amsynth'])
+						disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
+						
+						connect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
+						connect_queue.append ([audio_ports, 'fx_out_6', 'playback_2'])
+						
+						connect_loop()
+						
+					elif pmode == fluidsynth:
+						disconnect_queue.append ([midi_ports, 'aubio', 'fluidsynth'])
+						disconnect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
+					elif pmode == 'loop':
+						disconnect_queue.append ([midi_ports, 'korg_in', 'sl'])
+					elif pmode == 'drum':
+						disconnect_queue.append ([midi_ports, 'korg_in', 'hydrogen'])
+					elif pmode == loop_fx:
+						disconnect_midi_loops()
 					
 					connect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
 					
-					connect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
-					connect_queue.append ([audio_ports, 'fx_out_6', 'playback_2'])
-					#connect_queue.append ([audio_ports, 'fx_out_6', 'sl_in_all'])
-					#connect_queue.append ([audio_ports, 'fx_out_1', 'sl_in_all'])
-					#connect_queue.append ([audio_ports, 'capture_1', 'sl_in_all'])
-					#connect_queue.append ([audio_ports, 'capture_2', 'sl_in_all'])
-					
-					connect_loop()
 					
 			elif cc == spec_button ('drum'):
 				if mode != 'drum':
 					updateLeds (mode, 'drum')
 					mode = 'drum'
 					
-					disconnect_queue.append ([midi_ports, 'korg_in', 'sl'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
-					disconnect_midi_loops()
-					disconnect_queue.append ([midi_ports, 'aubio', 'amsynth'])
-					disconnect_queue.append ([midi_ports, 'aubio', 'fluidsynth'])
+					if pmode == 'loop':
+						disconnect_queue.append ([midi_ports, 'korg_in', 'sl'])
+					elif pmode == 'synth':
+						disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
+						disconnect_queue.append ([midi_ports, 'aubio', 'amsynth'])
+					elif pmode == fluidsynth:
+						disconnect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
+						disconnect_queue.append ([midi_ports, 'aubio', 'fluidsynth'])
+					elif pmode == 'fx':
+						disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
+					elif pmode == loop_fx:
+						disconnect_midi_loops()
 					
 					connect_queue.append ([midi_ports, 'korg_in', 'hydrogen'])
 					
-					connect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
-					connect_queue.append ([audio_ports, 'fx_out_6', 'playback_2'])
-					#connect_queue.append ([audio_ports, 'fx_out_6', 'sl_in_all'])
-					#connect_queue.append ([audio_ports, 'fx_out_1', 'sl_in_all'])
-					#connect_queue.append ([audio_ports, 'capture_1', 'sl_in_all'])
-					#connect_queue.append ([audio_ports, 'capture_2', 'sl_in_all'])
-					
-					connect_loop()
+					if pmode == 'synth' or pmode == fluidsynth:
+						connect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
+						connect_queue.append ([audio_ports, 'fx_out_6', 'playback_2'])
+						connect_loop()
 
 			elif cc == spec_button ('synth'):
 				
-				disconnect_queue.append ([midi_ports, 'korg_in', 'sl'])
-				disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
-				disconnect_midi_loops()
-				disconnect_queue.append ([midi_ports, 'korg_in', 'hydrogen'])
+				if pmode == 'loop':
+					disconnect_queue.append ([midi_ports, 'korg_in', 'sl'])
+				elif pmode == 'fx':
+					disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
+				elif pmode == loop_fx:
+					disconnect_midi_loops()
+				elif pmode == 'drum':
+					disconnect_queue.append ([midi_ports, 'korg_in', 'hydrogen'])
 				
-				disconnect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
-				disconnect_queue.append ([audio_ports, 'fx_out_6', 'playback_2'])
-				#disconnect_queue.append ([audio_ports, 'fx_out_6', 'sl_in_all'])
-				#disconnect_queue.append ([audio_ports, 'fx_out_1', 'sl_in_all'])
-				#disconnect_queue.append ([audio_ports, 'capture_1', 'sl_in_all'])
-				#disconnect_queue.append ([audio_ports, 'capture_2', 'sl_in_all'])
+				if pmode != 'synth' and pmode != fluidsynth:
+					disconnect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
+					disconnect_queue.append ([audio_ports, 'fx_out_6', 'playback_2'])
+					disconnect_loop()
 				
-				disconnect_loop()
-				
-				if mode != 'synth': # amsynth
+				if mode != 'synth':  # somewhat -> amsynth
 					updateLeds (mode, 'synth')
 					mode = 'synth'
 					
-					midi_queue.append (['fluidsynth_out', 0, (176,123,0)] ) # kill every noteon event from fluidsynth
-					midi_queue.append (['fluidsynth_out', 9, (176, 123, 0)])
-					
-					disconnect_queue.append ([midi_ports, 'aubio', 'fluidsynth'])
+					if pmode == fluidsynth:
+						midi_queue.append (['fluidsynth_out', 0, (176,123,0)] ) # kill every noteon event from fluidsynth
+						midi_queue.append (['fluidsynth_out', 9, (176, 123, 0)])
+						
+						disconnect_queue.append ([midi_ports, 'aubio', 'fluidsynth'])
+						disconnect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
+						
 					connect_queue.append ([midi_ports, 'aubio', 'amsynth'])
 					connect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
-					disconnect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
 					
-				else: # fluidsynth
+					
+				else: # amsynth -> fluidsynth
 					updateLeds (mode, fluidsynth)
 					mode = fluidsynth
 					
@@ -606,8 +611,7 @@ def process_korg_in (cc, value):
 					disconnect_queue.append ([midi_ports, 'aubio', 'amsynth'])
 					connect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
 					disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
-						
-					
+
 			elif cc == spec_button ('save'):
 				save()
 			elif cc == spec_button ('load_next'):
@@ -688,7 +692,18 @@ def process_korg_in (cc, value):
 						b = button2Int (cc)
 						selected[mode][b] = not selected[mode][b]
 						midi_queue.append (['korg_out', 0, (176, cc, 127*int(selected[mode][b]))])
+
+def process_midi_queue():
+	global midi_queue
+	
+	while started and ports_ready:
+		while midi_queue: # is empty?
+			q = midi_queue.popleft()
+			print (q)
+			my_midi_ports[q[0]].write_midi_event (q[1], q[2])
 		
+		time.sleep (0.01)
+
 def process_connect_queue():
 	global connect_queue
 	global disconnect_queue
@@ -887,6 +902,7 @@ except:
 
 try:
 	_thread.start_new_thread ( read_pedal, () )
+	_thread.start_new_thread ( process_midi_queue, () )
 	_thread.start_new_thread ( process_connect_queue, () )
 	_thread.start_new_thread ( copy_fx_config_to_loop, () )
 except:
