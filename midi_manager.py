@@ -833,7 +833,6 @@ except:
 
 
 try:
-	#_thread.start_new_thread ( processNonRealtime, () )
 	_thread.start_new_thread ( read_pedal, () )
 except:
 	print ("Error: unable to start thread: " + str(sys.exc_info()[0]))
@@ -852,7 +851,7 @@ while True:
 		
 		while True:
 			my_midi_ports['sl_out'].clear_buffer()
-			cleared_korg = False 
+			cleared_korg = False
 			
 			if pedal_pressed:
 				if not sync_switch:
@@ -883,6 +882,7 @@ while True:
 					cleared_korg = True
 					my_midi_ports['korg_out'].write_midi_event (0, [176, spec_button('record'), 0])
 				
+				my_midi_ports['sl_out'].clear_buffer()
 				my_midi_ports['sl_out'].write_midi_event (0, msg['record'])
 				pedal_pressed = False
 			
@@ -892,7 +892,6 @@ while True:
 					if last_midi != (b2, b3):
 						if not cleared_korg:
 							my_midi_ports['korg_out'].clear_buffer()
-						my_midi_ports['sl_out'].clear_buffer()
 						my_midi_ports['fluidsynth_out'].clear_buffer()
 						my_midi_ports['amsynth_out'].clear_buffer()
 						process_korg_in (b2, b3)
