@@ -402,6 +402,7 @@ def process(frames):
 	global my_midi_ports
 	global pedal_pressed
 	global copy_fx_config
+	global midi_queue
 	
 	if ports_ready:
 		my_midi_ports['korg_out'].clear_buffer()
@@ -424,6 +425,11 @@ def process(frames):
 			#my_midi_ports['sl_out'].write_midi_event (0, msg['record'])
 			midi_queue.append (['sl_out', 0, msg['record']])
 			pedal_pressed = False
+		
+		while midi_queue: # is empty?
+			q = midi_queue.popleft()
+			print (q)
+			my_midi_ports[q[0]].write_midi_event (q[1], q[2])
 			
 		for offset, data in my_midi_ports['korg_in'].incoming_midi_events():
 			if len(data) == 3:
@@ -902,7 +908,7 @@ except:
 
 try:
 	_thread.start_new_thread ( read_pedal, () )
-	_thread.start_new_thread ( process_midi_queue, () )
+	#_thread.start_new_thread ( process_midi_queue, () )
 	_thread.start_new_thread ( process_connect_queue, () )
 	_thread.start_new_thread ( copy_fx_config_to_loop, () )
 except:
@@ -910,4 +916,4 @@ except:
 
 #pdb.set_trace()
 while True:
-	time.sleep (0.01)
+	time.sleep (1)
