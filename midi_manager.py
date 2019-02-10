@@ -236,7 +236,7 @@ def setup_connections():
 	midi_ports = {k: getPort (all_midi_ports, v) for (k, v) in port_desc}
 
 	connect_ports (midi_ports, 'korg_in', 'sl')
-	connect_ports (midi_ports, 'korg_in', 'hydrogen')
+	#connect_ports (midi_ports, 'korg_in', 'hydrogen')
 	disconnect_ports (midi_ports, 'korg_in', 'mod-host-fx')
 	for i in range(fx_loops):
 		disconnect_ports (midi_ports, 'korg_in', 'mod-host-loop_' + str(i))
