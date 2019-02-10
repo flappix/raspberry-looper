@@ -523,6 +523,9 @@ def process_korg_in (cc, value):
 						disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-fx'])
 					elif pmode == loop_fx:
 						disconnect_queue.append ([midi_ports, 'korg_in', 'mod-host-loop_' + str(curr_loop - 1)])
+					elif pmode == 'drum':
+						disconnect_queue.append ([midi_ports, 'korg_in', 'hydrogen'])
+						
 					
 			elif cc == spec_button ('fx'):
 				if mode != 'fx':
