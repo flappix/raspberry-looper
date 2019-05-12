@@ -70,7 +70,8 @@ modhost_client_fx.connect ( ("localhost", 5555) )
 waste = send_modhost (modhost_client_fx, 'load mod-host/mod-host-config.txt', False)
 
 while len([i.name for i in jackclient.get_ports() if i.__class__ == jack.Port and 'host' in i.name]) == 0:
-	time.sleep (0.2)
+	print ([i.name for i in jackclient.get_ports() if i.__class__ == jack.Port])
+	time.sleep (1)
 
 print (ready)
 logging.info ('mod-host')
