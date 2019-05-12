@@ -13,7 +13,7 @@ import pdb
 import struct
 import collections
 
-import logging
+#import logging
 
 gpio = False
 try:
@@ -25,7 +25,7 @@ except ModuleNotFoundError:
 import jack
 
 
-logging.basicConfig(filename='/tmp/llogs/midi_manager.py', level=logging.INFO)
+#logging.basicConfig(filename='/tmp/llogs/midi_manager.py', level=logging.INFO)
 
 
 
@@ -76,7 +76,7 @@ def setup_modhost (n_effects, fx_loops):
 	modhost_client_fx.connect ( ("localhost", 5555) )
 	waste = send_modhost (modhost_client_fx, 'load mod-host/mod-host-config.txt', False)
 	
-	while ([i.name for i in jackclient.get_ports() if i.__class__ == jack.Port and ('effect_' + str (fx_loops)) in i.name]) == 0:
+	while ([i.name for i in jackclient.get_ports() if i.__class__ == jack.Port and ('effect_' + str (n_effects - 1)) in i.name]) == 0:
 		time.sleep (0.1)
 
 	modhost_client_loop = [socket.socket(socket.AF_INET, socket.SOCK_STREAM) for i in range (fx_loops)]
@@ -84,9 +84,11 @@ def setup_modhost (n_effects, fx_loops):
 		mh = modhost_client_loop[i]
 		mh.connect ( ("localhost", 5555 + i + 1) )
 		waste = send_modhost (mh, 'load mod-host/mod-host-config.txt', False)
-	
-		while len([p.name for p in jackclient.get_ports() if p.__class__ == jack.Port and ('effect_' + str (n_effects) + '-0' + str (fx_loops + 1) ) in p.name]) == 0:
+		
+		print(('effect_' + str (n_effects - 1) + '-0' + str (i + 1) ) )
+		while len([p.name for p in jackclient.get_ports() if p.__class__ == jack.Port and ('effect_' + str (n_effects - 1) + '-0' + str (i + 1) ) in p.name]) == 0:
 			time.sleep (0.1)
+	print('done')
 
 def read_modhost_params():
 	params = {}
