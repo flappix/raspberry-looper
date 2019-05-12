@@ -75,7 +75,7 @@ while len([i.name for i in jackclient.get_ports() if i.__class__ == jack.Port an
 
 logging.info ('mod-host')
 logging.info ('====================')
-logging.info ([i.name for i in jackclient.get_ports() if i.__class__ == jack.Port and 'effect_6' in i.name])
+logging.info ([i.name for i in jackclient.get_ports() if i.__class__ == jack.Port and 'effect_' in i.name])
 
 modhost_client_loop = [socket.socket(socket.AF_INET, socket.SOCK_STREAM) for i in range(fx_loops)]
 for i in range(len(modhost_client_loop)):
@@ -83,12 +83,12 @@ for i in range(len(modhost_client_loop)):
 	mh.connect ( ("localhost", 5555 + i + 1) )
 	waste = send_modhost (mh, 'load mod-host/mod-host-config.txt', False)
 	
-	while len([p.name for p in jackclient.get_ports() if p.__class__ == jack.Port and 'effect-0'+str(i+1)+'_6' in p.name]) == 0:
+	while len([p.name for p in jackclient.get_ports() if p.__class__ == jack.Port and ('effect_6-0' + str(i+1)) in p.name]) == 0:
 		time.sleep (1)
 	
 	logging.info ('mod-host-0' + str(i+1))
 	logging.info ('====================')
-	logging.info ([p.name for p in jackclient.get_ports() if p.__class__ == jack.Port and 'effect-0'+str(i+1)+'_6' in p.name])
+	logging.info ([p.name for p in jackclient.get_ports() if p.__class__ == jack.Port and 'effect_' in p.name])
 
 def read_modhost_params():
 	params = {}
