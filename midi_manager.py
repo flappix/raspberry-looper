@@ -66,7 +66,7 @@ waste = send_modhost (modhost_client_fx, 'load mod-host/mod-host-config.txt', Fa
 
 print ('mod-host')
 print ('====================')
-print ([i for i in jackclient.get_ports() if i.__class__ == jack.Port]
+print ([i for i in jackclient.get_ports() if i.__class__ == jack.Port])
 
 modhost_client_loop = [socket.socket(socket.AF_INET, socket.SOCK_STREAM) for i in range(fx_loops)]
 for i in range(len(modhost_client_loop)):
