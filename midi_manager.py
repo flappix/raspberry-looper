@@ -13,6 +13,8 @@ import pdb
 import struct
 import collections
 
+import logging
+
 gpio = False
 try:
 	import RPi.GPIO as GPIO
@@ -21,6 +23,9 @@ except ModuleNotFoundError:
 	print ('no gpio available')
 
 import jack
+
+
+logging.basicConfig(filename='/tmp/llogs/midi_manager.py' level=logging.INFO)
 
 
 
@@ -64,9 +69,9 @@ modhost_client_fx = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 modhost_client_fx.connect ( ("localhost", 5555) )
 waste = send_modhost (modhost_client_fx, 'load mod-host/mod-host-config.txt', False)
 
-print ('mod-host')
-print ('====================')
-print ([i for i in jackclient.get_ports() if i.__class__ == jack.Port])
+logging.info ('mod-host')
+logging.info ('====================')
+logging.info ([i for i in jackclient.get_ports() if i.__class__ == jack.Port])
 
 modhost_client_loop = [socket.socket(socket.AF_INET, socket.SOCK_STREAM) for i in range(fx_loops)]
 for i in range(len(modhost_client_loop)):
