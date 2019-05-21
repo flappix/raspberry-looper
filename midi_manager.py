@@ -371,6 +371,8 @@ midi_queue = collections.deque ([['korg_out', 0, (176, button (curr_loop, 1), 12
 connect_queue = collections.deque()
 disconnect_queue = collections.deque()
 
+aubio_connected = None
+
 
 ########################################################################
 ## utils
@@ -492,6 +494,7 @@ def process_korg_in (cc, value):
 	global poweroff_counter
 	global connect_queue
 	global midi_queue
+	global aubio_connected
 
 	if (value > 0):
 		#power off
@@ -532,8 +535,11 @@ def process_korg_in (cc, value):
 					updateLeds (mode, 'fx')
 					mode = 'fx'
 					
+					if aubio_connected != None:
+						disconnect_queue.append ([midi_ports, 'aubio', aubio_connected])
+						aubio_connected = None
+					
 					if pmode == 'synth':
-						disconnect_queue.append ([midi_ports, 'aubio', 'amsynth'])
 						disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
 						
 						connect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
@@ -542,7 +548,6 @@ def process_korg_in (cc, value):
 						connect_loop()
 						
 					elif pmode == fluidsynth:
-						disconnect_queue.append ([midi_ports, 'aubio', 'fluidsynth'])
 						disconnect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
 					elif pmode == 'loop':
 						disconnect_queue.append ([midi_ports, 'korg_in', 'sl'])
@@ -608,6 +613,7 @@ def process_korg_in (cc, value):
 						
 					connect_queue.append ([midi_ports, 'aubio', 'amsynth'])
 					connect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
+					aubio_connected = 'amsynth'
 					
 					
 				else: # amsynth -> fluidsynth
@@ -620,6 +626,8 @@ def process_korg_in (cc, value):
 					disconnect_queue.append ([midi_ports, 'aubio', 'amsynth'])
 					connect_queue.append ([midi_ports, 'korg_in', 'fluidsynth'])
 					disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
+					
+					aubio_connected = 'fluidsynth'
 
 			elif cc == spec_button ('save'):
 				save()
