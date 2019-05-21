@@ -538,13 +538,11 @@ def process_korg_in (cc, value):
 					if aubio_connected != None:
 						disconnect_queue.append ([midi_ports, 'aubio', aubio_connected])
 						aubio_connected = None
+						connect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
+						connect_queue.append ([audio_ports, 'fx_out_6', 'playback_2'])
 					
 					if pmode == 'synth':
 						disconnect_queue.append ([midi_ports, 'korg_in', 'amsynth'])
-						
-						connect_queue.append ([audio_ports, 'fx_out_6', 'playback_1'])
-						connect_queue.append ([audio_ports, 'fx_out_6', 'playback_2'])
-						
 						connect_loop()
 						
 					elif pmode == fluidsynth:
