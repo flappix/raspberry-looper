@@ -25,7 +25,7 @@ except ModuleNotFoundError:
 import jack
 
 
-logging.basicConfig(filename='/tmp/llogs/midi_manager.py' level=logging.INFO)
+logging.basicConfig(filename='/tmp/llogs/midi_manager.py', level=logging.INFO)
 
 
 
@@ -79,9 +79,9 @@ for i in range(len(modhost_client_loop)):
 	mh.connect ( ("localhost", 5555 + i + 1) )
 	waste = send_modhost (mh, 'load mod-host/mod-host-config.txt', False)
 	
-	print ('mod-host-0' + str(i+1))
-	print ('====================')
-	print ([i for i in jackclient.get_ports() if i.__class__ == jack.Port])
+	logging.info ('mod-host-0' + str(i+1))
+	logging.info ('====================')
+	logging.info ([i for i in jackclient.get_ports() if i.__class__ == jack.Port])
 
 def read_modhost_params():
 	params = {}
