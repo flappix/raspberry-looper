@@ -64,11 +64,19 @@ modhost_client_fx = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 modhost_client_fx.connect ( ("localhost", 5555) )
 waste = send_modhost (modhost_client_fx, 'load mod-host/mod-host-config.txt', False)
 
+print ('mod-host')
+print ('====================')
+print ([i for i in jackclient.get_ports() if i.__class__ == jack.Port]
+
 modhost_client_loop = [socket.socket(socket.AF_INET, socket.SOCK_STREAM) for i in range(fx_loops)]
 for i in range(len(modhost_client_loop)):
 	mh = modhost_client_loop[i]
 	mh.connect ( ("localhost", 5555 + i + 1) )
 	waste = send_modhost (mh, 'load mod-host/mod-host-config.txt', False)
+	
+	print ('mod-host-0' + str(i+1))
+	print ('====================')
+	print ([i for i in jackclient.get_ports() if i.__class__ == jack.Port]
 
 def read_modhost_params():
 	params = {}
@@ -144,7 +152,7 @@ def setup_connections():
 				 [('sl_in_' + str(i), ['sooperlooper', 'loop' + str(i) + '_in_1']) for i in range(loops)] + \
 				 [('fx_in_' + str(i), ['effect_' + str(i) + ':in']) for i in range(n_effects)] + \
 				 [('fx_out_' + str(i), ['effect_' + str(i) + ':out']) for i in range(n_effects)] + \
-				 [('loop_fx_' + str(k) + '_in_' + str(i), ['effect_' + str(i) + '-0' + str(k + 1) + ':in']) for i in range(n_effects) for k in range(fx_loops)] +\
+				 [('loop_fx_' + str(k) + '_in_' + str(i), ['effect_' + str(i) + '-0' + str(k + 1) + ':in']) for i in range(n_effects) for k in range(fx_loops)] + \
 				 [('loop_fx_' + str(k) + '_out_' + str(i), ['effect_' + str(i) + '-0' + str(k + 1) + ':out']) for i in range(n_effects) for k in range(fx_loops)]
 				 
 	
