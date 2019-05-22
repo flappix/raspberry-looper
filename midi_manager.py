@@ -76,7 +76,7 @@ for i in range(len(modhost_client_loop)):
 	
 	print ('mod-host-0' + str(i+1))
 	print ('====================')
-	print ([i for i in jackclient.get_ports() if i.__class__ == jack.Port]
+	print ([i for i in jackclient.get_ports() if i.__class__ == jack.Port])
 
 def read_modhost_params():
 	params = {}
