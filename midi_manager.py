@@ -169,21 +169,25 @@ def setup_connections():
 				 
 	setup_modhost (n_effects, fx_loops)
 	
-	# wait until all ports are present			 
-	for (k, v) in port_desc:
-		tryagain = True
-		while tryagain:
-			print ("get port " + k)
-			all_audio_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.Port]
+	# wait until all ports are present
+	audio_ports = {}
+
+	while len(port_desc) > 0:
+		all_audio_ports = [i for i in jackclient.get_ports() if i.__class__ == jack.Port]
+		#for i in range(len(port_desc)):
+		for (k, v) in port_desc:
+			#k = port_desc[i][0]
+			#v = port_desc[i][1]
+			print ('look for port ' + k)
 			p = getPort (all_audio_ports, v)
-			
-			if p is None:
-				time.sleep (0.5)
-				
-			else:
-				tryagain = False
-	
-	audio_ports = {k: getPort (all_audio_ports, v) for (k, v) in port_desc}
+
+			if p is not None:
+				#print ('found port ' + k)
+				audio_ports[k] = p
+				port_desc[:] = [(x, y) for (x, y) in port_desc if x is not k]
+		
+		if len(port_desc) > 0:
+			time.sleep (0.1)
 	# connecting ports
 
 	connect_ports (audio_ports, 'capture_1', 'aubio_in')
