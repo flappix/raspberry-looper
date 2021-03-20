@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/alsa_audio_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/alsa_audio_driver.cpp
 hydrogen/IO/AlsaAudioDriver.h
 -
 pthread.h
@@ -16,7 +16,7 @@ iostream
 hydrogen/Preferences.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/alsa_midi_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/alsa_midi_driver.cpp
 hydrogen/IO/AlsaMidiDriver.h
 -
 hydrogen/Preferences.h
@@ -38,13 +38,13 @@ hydrogen/basics/instrument_list.h
 hydrogen/LashClient.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/coreaudio_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/coreaudio_driver.cpp
 hydrogen/IO/CoreAudioDriver.h
 -
 CoreServices/CoreServices.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/CoreServices/CoreServices.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/CoreServices/CoreServices.h
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/coremidi_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/coremidi_driver.cpp
 hydrogen/hydrogen.h
 -
 hydrogen/basics/note.h
@@ -58,7 +58,7 @@ hydrogen/Preferences.h
 hydrogen/IO/CoreMidiDriver.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/disk_writer_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/disk_writer_driver.cpp
 unistd.h
 -
 hydrogen/Preferences.h
@@ -82,11 +82,11 @@ cassert
 windows.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/fake_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/fake_driver.cpp
 hydrogen/IO/FakeDriver.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/jack_midi_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/jack_midi_driver.cpp
 hydrogen/IO/JackMidiDriver.h
 -
 hydrogen/Preferences.h
@@ -106,7 +106,7 @@ hydrogen/basics/instrument_list.h
 hydrogen/LashClient.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/jack_output.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/jack_output.cpp
 hydrogen/IO/JackOutput.h
 -
 sys/types.h
@@ -142,7 +142,7 @@ hydrogen/LashClient.h
 jack/session.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/midi_input.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/midi_input.cpp
 hydrogen/IO/MidiInput.h
 -
 hydrogen/event_queue.h
@@ -164,7 +164,7 @@ hydrogen/audio_engine.h
 hydrogen/midi_map.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/midi_output.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/midi_output.cpp
 hydrogen/IO/MidiOutput.h
 -
 hydrogen/event_queue.h
@@ -182,13 +182,13 @@ hydrogen/midi_action.h
 hydrogen/midi_map.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/null_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/null_driver.cpp
 hydrogen/IO/NullDriver.h
 -
 hydrogen/globals.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/oss_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/oss_driver.cpp
 hydrogen/IO/OssDriver.h
 -
 hydrogen/Preferences.h
@@ -196,7 +196,7 @@ hydrogen/Preferences.h
 pthread.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/portaudio_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/portaudio_driver.cpp
 hydrogen/IO/PortAudioDriver.h
 -
 iostream
@@ -204,7 +204,7 @@ iostream
 hydrogen/Preferences.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/portmidi_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/portmidi_driver.cpp
 hydrogen/IO/PortMidiDriver.h
 -
 hydrogen/Preferences.h
@@ -226,7 +226,7 @@ porttime.h
 pthread.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/pulse_audio_driver.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/pulse_audio_driver.cpp
 hydrogen/IO/PulseAudioDriver.h
 -
 fcntl.h
@@ -234,13 +234,13 @@ fcntl.h
 hydrogen/Preferences.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/transport_info.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/IO/transport_info.cpp
 hydrogen/IO/TransportInfo.h
 -
 cstdio
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/audio_engine.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/audio_engine.cpp
 hydrogen/audio_engine.h
 -
 hydrogen/fx/Effects.h
@@ -252,13 +252,13 @@ hydrogen/hydrogen.h
 cassert
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/adsr.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/adsr.cpp
 hydrogen/basics/adsr.h
 -
 exponential_tables.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/exponential_tables.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/exponential_tables.h
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/drumkit.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/drumkit.cpp
 hydrogen/basics/drumkit.h
 -
 hydrogen/config.h
@@ -294,7 +294,7 @@ hydrogen/helpers/filesystem.h
 hydrogen/helpers/legacy.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/drumkit_component.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/drumkit_component.cpp
 hydrogen/basics/drumkit_component.h
 -
 cassert
@@ -316,9 +316,9 @@ hydrogen/basics/instrument_list.h
 hydrogen/basics/instrument_layer.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/exponential_tables.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/exponential_tables.h
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/instrument.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/instrument.cpp
 hydrogen/basics/instrument.h
 -
 cassert
@@ -344,7 +344,7 @@ hydrogen/basics/instrument_component.h
 hydrogen/basics/instrument_layer.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/instrument_component.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/instrument_component.cpp
 hydrogen/basics/instrument_component.h
 -
 cassert
@@ -368,7 +368,7 @@ hydrogen/basics/instrument_list.h
 hydrogen/basics/instrument_layer.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/instrument_layer.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/instrument_layer.cpp
 hydrogen/basics/instrument_layer.h
 -
 hydrogen/helpers/xml.h
@@ -376,7 +376,7 @@ hydrogen/helpers/xml.h
 hydrogen/basics/sample.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/instrument_list.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/instrument_list.cpp
 hydrogen/basics/instrument_list.h
 -
 hydrogen/helpers/xml.h
@@ -384,7 +384,7 @@ hydrogen/helpers/xml.h
 hydrogen/basics/instrument.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/note.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/note.cpp
 hydrogen/basics/note.h
 -
 cassert
@@ -400,7 +400,7 @@ hydrogen/basics/instrument_component.h
 hydrogen/basics/instrument_list.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/pattern.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/pattern.cpp
 hydrogen/basics/pattern.h
 -
 cassert
@@ -418,13 +418,13 @@ hydrogen/helpers/filesystem.h
 hydrogen/helpers/legacy.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/pattern_list.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/pattern_list.cpp
 hydrogen/basics/pattern_list.h
 -
 hydrogen/basics/pattern.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/sample.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/sample.cpp
 limits
 -
 hydrogen/hydrogen.h
@@ -438,9 +438,9 @@ hydrogen/basics/sample.h
 rubberband/RubberBandStretcher.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/song.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/song.cpp
 hydrogen/version.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/hydrogen/version.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/basics/hydrogen/version.h
 cassert
 -
 hydrogen/LocalFileMng.h
@@ -484,11 +484,11 @@ QDomDocument
 QDir
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/event_queue.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/event_queue.cpp
 hydrogen/event_queue.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/fx/effects.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/fx/effects.cpp
 hydrogen/fx/Effects.h
 -
 hydrogen/Preferences.h
@@ -508,7 +508,7 @@ cassert
 lrdf.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/fx/ladspa_fx.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/fx/ladspa_fx.cpp
 hydrogen/fx/LadspaFX.h
 -
 hydrogen/Preferences.h
@@ -522,7 +522,7 @@ cstdio
 vector
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/helpers/filesystem.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/helpers/filesystem.cpp
 hydrogen/config.h
 -
 hydrogen/helpers/filesystem.h
@@ -536,7 +536,7 @@ QtCore/QFileInfo
 QtCore/QCoreApplication
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/helpers/legacy.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/helpers/legacy.cpp
 hydrogen/helpers/legacy.h
 -
 hydrogen/version.h
@@ -568,7 +568,7 @@ hydrogen/basics/note.h
 hydrogen/basics/adsr.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/helpers/xml.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/helpers/xml.cpp
 hydrogen/helpers/xml.h
 -
 QtCore/QFile
@@ -584,11 +584,11 @@ QtXmlPatterns/QXmlSchema
 QtXmlPatterns/QXmlSchemaValidator
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen.cpp
 hydrogen/config.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/config.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/config.h
 hydrogen/timehelper.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/timehelper.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/timehelper.h
 unistd.h
 -
 sys/time.h
@@ -700,7 +700,7 @@ hydrogen/IO/CoreAudioDriver.h
 hydrogen/IO/PulseAudioDriver.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/lash/LashClient.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/lash/LashClient.cpp
 hydrogen/LashClient.h
 -
 lash/lash.h
@@ -710,7 +710,7 @@ hydrogen/Preferences.h
 hydrogen/h2_exception.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/lilypond/lilypond.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/lilypond/lilypond.cpp
 hydrogen/lilypond/lilypond.h
 -
 hydrogen/basics/song.h
@@ -720,9 +720,9 @@ hydrogen/basics/pattern_list.h
 hydrogen/basics/pattern.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/local_file_mgr.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/local_file_mgr.cpp
 hydrogen/version.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/version.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/version.h
 hydrogen/basics/adsr.h
 -
 hydrogen/hydrogen.h
@@ -782,9 +782,9 @@ QDomDocument
 QLocale
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/logger.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/logger.cpp
 hydrogen/logger.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/logger.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/logger.h
 cstdio
 -
 QtCore/QDir
@@ -796,7 +796,7 @@ windows.h
 unistd.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/midi_action.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/midi_action.cpp
 QObject
 -
 hydrogen/audio_engine.h
@@ -832,7 +832,7 @@ hydrogen/helpers/filesystem.h
 thread
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/midi_map.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/midi_map.cpp
 hydrogen/midi_action.h
 -
 hydrogen/midi_map.h
@@ -842,29 +842,29 @@ map
 QMutexLocker
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/nsm_client.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/nsm_client.cpp
 hydrogen/helpers/filesystem.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/helpers/filesystem.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/helpers/filesystem.h
 hydrogen/Preferences.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/Preferences.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/Preferences.h
 pthread.h
 -
 unistd.h
 -
 hydrogen/nsm_client.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/nsm_client.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/nsm_client.h
 hydrogen/nsm.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/nsm.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/nsm.h
 hydrogen/event_queue.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/event_queue.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/event_queue.h
 hydrogen/hydrogen.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/hydrogen.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/hydrogen.h
 hydrogen/basics/song.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/basics/song.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/basics/song.h
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/object.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/object.cpp
 hydrogen/object.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/object.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/object.h
 cassert
 -
 sstream
@@ -874,7 +874,7 @@ iomanip
 cstdlib
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/playlist.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/playlist.cpp
 hydrogen/h2_exception.h
 -
 hydrogen/Preferences.h
@@ -892,7 +892,7 @@ vector
 cstdlib
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/preferences.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/preferences.cpp
 stdlib.h
 -
 hydrogen/Preferences.h
@@ -920,15 +920,15 @@ list
 hydrogen/midi_map.h
 -
 hydrogen/version.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/version.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/version.h
 hydrogen/helpers/filesystem.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/helpers/filesystem.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/helpers/filesystem.h
 QDir
 -
 QApplication
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/sampler/sampler.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/sampler/sampler.cpp
 cassert
 -
 cmath
@@ -982,7 +982,7 @@ iostream
 QDebug
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/smf/smf.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/smf/smf.cpp
 hydrogen/smf/SMF.h
 -
 hydrogen/basics/pattern.h
@@ -998,13 +998,13 @@ hydrogen/basics/instrument_list.h
 fstream
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/smf/smf_event.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/smf/smf_event.cpp
 hydrogen/smf/SMFEvent.h
 -
 hydrogen/timehelper.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/synth/synth.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/synth/synth.cpp
 hydrogen/synth/Synth.h
 -
 cassert
@@ -1012,23 +1012,23 @@ cassert
 cmath
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/timehelper.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/timehelper.cpp
 time.h
 -
 hydrogen/timehelper.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/timeline.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/timeline.cpp
 algorithm
 -
 hydrogen/timeline.h
 -
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/version.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/version.cpp
 hydrogen/config.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/config.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/config.h
 hydrogen/version.h
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/version.h
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/src/hydrogen/version.h
 
 /usr/include/qt4/Qt3Support/q3cstring.h
 QtCore/qbytearray.h

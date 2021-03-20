@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/player/main.cpp
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/player/main.cpp
 iostream
 -
 cstdio

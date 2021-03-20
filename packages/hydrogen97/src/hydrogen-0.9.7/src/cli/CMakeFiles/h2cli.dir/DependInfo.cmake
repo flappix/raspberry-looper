@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/cli/main.cpp" "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/cli/CMakeFiles/h2cli.dir/main.cpp.o"
+  "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/cli/main.cpp" "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/cli/CMakeFiles/h2cli.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -36,7 +36,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/CMakeFiles/hydrogen-core-0.9.7.dir/DependInfo.cmake"
+  "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/CMakeFiles/hydrogen-core-0.9.7.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

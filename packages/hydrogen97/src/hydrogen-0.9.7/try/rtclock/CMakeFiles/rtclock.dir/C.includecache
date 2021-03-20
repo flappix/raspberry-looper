@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/cmake/rtclock/rtclock.c
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/cmake/rtclock/rtclock.c
 stdio.h
 -
 time.h

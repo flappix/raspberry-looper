@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/cmake/sscanf/sscanf.c" "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/try/sscanf/CMakeFiles/sscanf.dir/sscanf.c.o"
+  "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/cmake/sscanf/sscanf.c" "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/try/sscanf/CMakeFiles/sscanf.dir/sscanf.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

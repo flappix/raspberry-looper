@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/h2synth.dir/main.cpp.o"
-  "h2synth.pdb"
   "h2synth"
+  "h2synth.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

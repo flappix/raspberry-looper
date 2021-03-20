@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+a#!/usr/bin/env python3
 
 """JACK client that prints all received MIDI events."""
 

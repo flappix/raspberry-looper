@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/rtclock.dir/rtclock.c.o"
-  "rtclock.pdb"
   "rtclock"
+  "rtclock.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

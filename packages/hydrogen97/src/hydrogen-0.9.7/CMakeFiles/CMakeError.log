@@ -12151,3 +12151,159 @@ int main(int argc, char** argv)
 #endif
 }
 
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8eeef/fast && /usr/bin/make  -f CMakeFiles/cmTC_8eeef.dir/build.make CMakeFiles/cmTC_8eeef.dir/build
+make[1]: Entering directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8eeef.dir/src.c.o
+/usr/bin/cc   -D_FORTIFY_SOURCE=2 -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fno-plt -DCMAKE_HAVE_LIBC_PTHREAD -o CMakeFiles/cmTC_8eeef.dir/src.c.o -c /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_8eeef
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8eeef.dir/link.txt --verbose=1
+/usr/bin/cc -D_FORTIFY_SOURCE=2 -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fno-plt -DCMAKE_HAVE_LIBC_PTHREAD -Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now  -rdynamic CMakeFiles/cmTC_8eeef.dir/src.c.o -o cmTC_8eeef 
+/usr/bin/ld: CMakeFiles/cmTC_8eeef.dir/src.c.o: in function `main':
+src.c:(.text.startup+0x24): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text.startup+0x2e): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text.startup+0x38): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text.startup+0x44): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_8eeef.dir/build.make:106: cmTC_8eeef] Error 1
+make[1]: Leaving directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_8eeef/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_419e8/fast && /usr/bin/make  -f CMakeFiles/cmTC_419e8.dir/build.make CMakeFiles/cmTC_419e8.dir/build
+make[1]: Entering directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_419e8.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -D_FORTIFY_SOURCE=2 -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fno-plt -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_419e8.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_419e8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_419e8.dir/link.txt --verbose=1
+/usr/bin/cc -D_FORTIFY_SOURCE=2 -march=x86-64 -mtune=generic -O2 -pipe -fstack-protector-strong -fno-plt -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now  -rdynamic CMakeFiles/cmTC_419e8.dir/CheckFunctionExists.c.o -o cmTC_419e8  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_419e8.dir/build.make:106: cmTC_419e8] Error 1
+make[1]: Leaving directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_419e8/fast] Error 2
+
+
+
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a574f/fast && /usr/bin/make  -f CMakeFiles/cmTC_a574f.dir/build.make CMakeFiles/cmTC_a574f.dir/build
+make[1]: Entering directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a574f.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++  -I/usr/include/qt4 -O2 -std=gnu++11 -Wno-deprecated-register -fno-implement-inlines  -o CMakeFiles/cmTC_a574f.dir/CheckSymbolExists.cxx.o -c /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+    8 |   return ((int*)(&Q_WS_WIN))[argc];
+      |                   ^~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option ‘-Wno-deprecated-register’ may have been intended to silence earlier diagnostics
+make[1]: *** [CMakeFiles/cmTC_a574f.dir/build.make:85: CMakeFiles/cmTC_a574f.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_a574f/fast] Error 2
+
+
+File /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_476ec/fast && /usr/bin/make  -f CMakeFiles/cmTC_476ec.dir/build.make CMakeFiles/cmTC_476ec.dir/build
+make[1]: Entering directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_476ec.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++  -I/usr/include/qt4 -O2 -std=gnu++11 -Wno-deprecated-register -fno-implement-inlines  -o CMakeFiles/cmTC_476ec.dir/CheckSymbolExists.cxx.o -c /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+    8 |   return ((int*)(&Q_WS_QWS))[argc];
+      |                   ^~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option ‘-Wno-deprecated-register’ may have been intended to silence earlier diagnostics
+make[1]: *** [CMakeFiles/cmTC_476ec.dir/build.make:85: CMakeFiles/cmTC_476ec.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_476ec/fast] Error 2
+
+
+File /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_92830/fast && /usr/bin/make  -f CMakeFiles/cmTC_92830.dir/build.make CMakeFiles/cmTC_92830.dir/build
+make[1]: Entering directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_92830.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++  -I/usr/include/qt4 -O2 -std=gnu++11 -Wno-deprecated-register -fno-implement-inlines  -o CMakeFiles/cmTC_92830.dir/CheckSymbolExists.cxx.o -c /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+    8 |   return ((int*)(&Q_WS_MAC))[argc];
+      |                   ^~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option ‘-Wno-deprecated-register’ may have been intended to silence earlier diagnostics
+make[1]: *** [CMakeFiles/cmTC_92830.dir/build.make:85: CMakeFiles/cmTC_92830.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_92830/fast] Error 2
+
+
+File /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

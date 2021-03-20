@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/h2player.dir/main.cpp.o"
-  "h2player.pdb"
   "h2player"
+  "h2player.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

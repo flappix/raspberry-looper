@@ -1,4 +1,4 @@
-# Install script for directory: /home/flappix/build/hydrogen97/src/hydrogen-0.9.7
+# Install script for directory: /home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,6 +37,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+endif()
+
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/usr/share/hydrogen/data/../data")
@@ -46,7 +51,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/share/hydrogen/data/.." TYPE DIRECTORY FILES "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/data" REGEX "/\\.git$" EXCLUDE)
+file(INSTALL DESTINATION "/usr/share/hydrogen/data/.." TYPE DIRECTORY FILES "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/data" REGEX "/\\.git$" EXCLUDE)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -58,7 +63,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/share/appdata" TYPE FILE FILES "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/linux/hydrogen.appdata.xml")
+file(INSTALL DESTINATION "/usr/share/appdata" TYPE FILE FILES "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/linux/hydrogen.appdata.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -70,7 +75,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/share/applications" TYPE FILE FILES "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/linux/hydrogen.desktop")
+file(INSTALL DESTINATION "/usr/share/applications" TYPE FILE FILES "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/linux/hydrogen.desktop")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -82,15 +87,15 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/man/man1" TYPE FILE FILES "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/linux/hydrogen.1")
+file(INSTALL DESTINATION "/usr/man/man1" TYPE FILE FILES "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/linux/hydrogen.1")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/core/cmake_install.cmake")
-  include("/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/cli/cmake_install.cmake")
-  include("/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/player/cmake_install.cmake")
-  include("/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/src/synth/cmake_install.cmake")
+  include("/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/core/cmake_install.cmake")
+  include("/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/cli/cmake_install.cmake")
+  include("/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/player/cmake_install.cmake")
+  include("/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/src/synth/cmake_install.cmake")
 
 endif()
 
@@ -102,5 +107,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/flappix/build/hydrogen97/src/hydrogen-0.9.7/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,26 +1,49 @@
+/usr/lib/ladspa/ZamGEQ31-ladspa.so:
+	ZamGEQ31 (1514615601/ZamGEQ31)
+/usr/lib/ladspa/ZamAutoSat-ladspa.so:
+	ZamAutoSat (1515405652/ZamAutoSat)
 /usr/lib/ladspa/sine.so:
 	Sine Oscillator (Freq:audio, Amp:audio) (1044/sine_faaa)
 	Sine Oscillator (Freq:audio, Amp:control) (1045/sine_faac)
 	Sine Oscillator (Freq:control, Amp:audio) (1046/sine_fcaa)
 	Sine Oscillator (Freq:control, Amp:control) (1047/sine_fcac)
-/usr/lib/ladspa/filter.so:
-	Simple Low Pass Filter (1041/lpf)
-	Simple High Pass Filter (1042/hpf)
+/usr/lib/ladspa/ZamPhono-ladspa.so:
+	ZamPhono (1515016264/ZamPhono)
+/usr/lib/ladspa/ZamGrains-ladspa.so:
+	ZamGrains (1515013970/ZamGrains)
 /usr/lib/ladspa/delay.so:
 	Simple Delay Line (1043/delay_5s)
+/usr/lib/ladspa/ZamTube-ladspa.so:
+	ZamTube (1515476290/ZamTube)
 /usr/lib/ladspa/amp.so:
 	Mono Amplifier (1048/amp_mono)
 	Stereo Amplifier (1049/amp_stereo)
+/usr/lib/ladspa/ZaMultiComp-ladspa.so:
+	ZaMultiComp (1515015491/ZaMultiComp)
+/usr/lib/ladspa/ZamCompX2-ladspa.so:
+	ZamCompX2 (1514360882/ZamCompX2)
+/usr/lib/ladspa/ZamGateX2-ladspa.so:
+	ZamGateX2 (1514624050/ZamGateX2)
 /usr/lib/ladspa/guitarix.so:
 	guitarix (4068/Simulators)
 /usr/lib/ladspa/guitarix_amp.so:
 	guitarix_amp (4066/guitarix_amp)
 /usr/lib/ladspa/guitarix_distortion.so:
 	guitarix_distortion (4061/guitarix-distortion)
+/usr/lib/ladspa/ZaMultiCompX2-ladspa.so:
+	ZaMultiCompX2 (1515015474/ZaMultiCompX2)
+/usr/lib/ladspa/ZaMaximX2-ladspa.so:
+	ZaMaximX2 (1515018290/ZaMaximX2)
 /usr/lib/ladspa/guitarix_echo.so:
 	guitarix_echo (4063/guitarix_echo)
+/usr/lib/ladspa/ZamDynamicEQ-ladspa.so:
+	ZamDynamicEQ (1515013201/ZamDynamicEQ)
 /usr/lib/ladspa/guitarix_crybaby.so:
 	guitarix_crybaby (4062/guitarix_crybaby)
+/usr/lib/ladspa/ZamDelay-ladspa.so:
+	ZamDelay (1515013196/ZamDelay)
+/usr/lib/ladspa/ZamEQ2-ladspa.so:
+	ZamEQ2 (1514492210/ZamEQ2)
 /usr/lib/ladspa/guitarix_compressor.so:
 	guitarix_compressor (4067/guitarix_compressor)
 /usr/lib/ladspa/guitarix_freeverb.so:
@@ -35,3 +58,7 @@
 	Guitarix Stereo Fx (4070/guitarix-fx)
 /usr/lib/ladspa/noise.so:
 	White Noise Source (1050/noise_white)
+/usr/lib/ladspa/ZamGate-ladspa.so:
+	ZamGate (1514619220/ZamGate)
+/usr/lib/ladspa/ZamComp-ladspa.so:
+	ZamComp (1514360144/ZamComp)
