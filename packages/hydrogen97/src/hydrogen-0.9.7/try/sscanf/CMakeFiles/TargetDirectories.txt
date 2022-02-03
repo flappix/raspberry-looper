@@ -1,3 +1,0 @@
-/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/try/sscanf/CMakeFiles/rebuild_cache.dir
-/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/try/sscanf/CMakeFiles/edit_cache.dir
-/home/flappix/docs/code/raspberry-looper/packages/hydrogen97/src/hydrogen-0.9.7/try/sscanf/CMakeFiles/sscanf.dir

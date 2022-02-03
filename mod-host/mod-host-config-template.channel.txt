@@ -1,0 +1,32 @@
+add http://lv2plug.in/plugins/eg-amp {0}
+midi_map {0} gain {c} 0 -24 24
+add http://calf.sourceforge.net/plugins/Compressor {1}
+midi_map {1} threshold {c} 1 0.000976563 1
+midi_map {1} ratio {c} 2 1 20
+add http://lv2plug.in/plugins/bdelay {2}
+midi_map {2} div {c} 3 4 16
+midi_map {2} feedback {c} 4 0 100
+midi_map {2} drywet {c} 5 0 100
+add http://guitarix.sourceforge.net/plugins/gx_bossds1_#_bossds1_ {3}
+midi_map {3} LEVEL {c} 6 0 12
+midi_map {3} DRIVE {c} 7 0 1
+add http://calf.sourceforge.net/plugins/Reverb {4}
+set_param {4} bass_cut 20
+set_param {4} treble_cut 20000
+midi_map {4} decay_time {c} 16 0.4 15
+midi_map {4} dry {c} 17 0 2
+midi_map {4} amount {c} 18 0 2
+add http://calf.sourceforge.net/plugins/Equalizer8Band {5}
+param_set {5} hp_active 1
+param_set {5} lp_active 1
+midi_map {5} hp_freq {c} 19 10 400
+midi_map {5} hp_q {c} 20 0.8 10
+midi_map {5} lp_freq {c} 21 400 2000
+midi_map {5} lp_q {c} 22 0.8 10
+add http://lv2plug.in/plugins/eg-amp {6}
+midi_map {6} gain {c} 23 -24 24
+bypass {1} 1
+bypass {2} 1
+bypass {3} 1
+bypass {4} 1
+bypass {5} 1
